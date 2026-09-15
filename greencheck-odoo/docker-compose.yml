@@ -1,0 +1,43 @@
+services:
+
+  greencheck-db:
+
+    image: postgres:16
+
+    container_name: greencheck-postgres
+
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+
+    volumes:
+      - greencheck-db-data:/var/lib/postgresql/data
+
+
+  greencheck-odoo:
+
+    image: odoo:19.0
+
+    container_name: greencheck-odoo
+
+    depends_on:
+      - greencheck-db
+
+    ports:
+      - "8070:8069"
+
+    volumes:
+
+      - ./addons:/mnt/extra-addons
+
+      - ./config:/etc/odoo
+
+      - greencheck-web-data:/var/lib/odoo
+
+
+volumes:
+
+  greencheck-db-data:
+
+  greencheck-web-data:
