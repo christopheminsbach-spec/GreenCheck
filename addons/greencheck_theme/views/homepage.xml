@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="greencheck_homepage"
+              name="GreenCheck Homepage"
+              inherit_id="website.homepage">
+
+        <xpath expr="//div[@id='wrap']" position="replace">
+
+            <div id="wrap">
+
+                <section class="greencheck-hero">
+
+                    <div class="container text-center">
+
+                        <h1>
+                            🌱 GreenCheck
+                        </h1>
+
+                        <h2>
+                            Diagnostic intelligent
+                            des plantes par IA
+                        </h2>
+
+                        <p>
+                            Analysez l'état de vos plantes
+                            grâce à l'intelligence artificielle.
+                        </p>
+
+                        <a href="/contact"
+                           class="btn btn-primary">
+                            Découvrir notre solution
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <section class="greencheck-intro">
+
+                    <div class="container">
+
+                        <h2>
+                            Une nouvelle approche
+                            du soin des plantes
+                        </h2>
+
+                        <p>
+                            GreenCheck combine IA,
+                            vision par ordinateur
+                            et expertise végétale.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </xpath>
+
+    </template>
+
+
+</odoo>

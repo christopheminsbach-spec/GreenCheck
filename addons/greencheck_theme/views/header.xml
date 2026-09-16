@@ -1,0 +1,35 @@
+<odoo>
+
+    <template id="greencheck_header"
+              inherit_id="website.template_header_default">
+
+        <!-- Modification du logo / nom du site -->
+        <xpath expr="//t[@t-call='website.placeholder_header_brand']"
+               position="replace">
+
+            <a href="/"
+               class="navbar-brand greencheck-brand">
+
+                🌱 GreenCheck
+
+            </a>
+
+        </xpath>
+
+
+        <!-- Ajout d'un bouton contact -->
+        <xpath expr="//ul[contains(@class,'navbar-nav')]"
+               position="inside">
+
+            <li class="nav-item">
+                <a href="/contactus"
+                   class="btn greencheck-button">
+                    Contact
+                </a>
+            </li>
+
+        </xpath>
+
+    </template>
+
+</odoo>
