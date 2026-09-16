@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template
+        id="greencheck_diagnostic_page"
+        name="GreenCheck Diagnostic IA">
+
+        <t t-call="website.layout">
+
+            <div id="wrap">
+
+                <section class="greencheck-hero">
+
+                    <div class="container text-center">
+
+                        <h1>
+                            🌱 Diagnostic IA
+                        </h1>
+
+                        <h2>
+                            Analyse intelligente des plantes
+                        </h2>
+
+                        <p>
+                            GreenCheck utilise
+                            l'intelligence artificielle
+                            et la vision par ordinateur
+                            pour analyser vos plantes.
+                        </p>
+
+                        <a href="/contactus"
+                           class="btn btn-primary">
+                            Commencer un diagnostic
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <section class="greencheck-intro">
+
+                    <div class="container">
+
+                        <h2>
+                            Comment ça fonctionne ?
+                        </h2>
+
+                        <p>
+                            📷 Importer une image
+                        </p>
+
+                        <p>
+                            🤖 Analyse par intelligence artificielle
+                        </p>
+
+                        <p>
+                            📊 Résultat et recommandations
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+
+</odoo>

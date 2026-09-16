@@ -1,32 +1,75 @@
 <odoo>
 
-    <template id="greencheck_header"
-              inherit_id="website.template_header_default">
+    <template
+        id="greencheck_header"
+        inherit_id="website.template_header_default">
 
-        <!-- Modification du logo / nom du site -->
-        <xpath expr="//t[@t-call='website.placeholder_header_brand']"
+        <xpath expr="//div[@id='o_main_nav']"
                position="replace">
 
-            <a href="/"
-               class="navbar-brand greencheck-brand">
+            <div id="o_main_nav"
+                 class="container greencheck-header">
 
-                🌱 GreenCheck
-
-            </a>
-
-        </xpath>
-
-
-        <!-- Ajout d'un bouton contact -->
-        <xpath expr="//ul[contains(@class,'navbar-nav')]"
-               position="inside">
-
-            <li class="nav-item">
-                <a href="/contactus"
-                   class="btn greencheck-button">
-                    Contact
+                <!-- Logo -->
+                <a href="/"
+                   class="navbar-brand">
+                    <span>
+                        🌱 GreenCheck
+                    </span>
                 </a>
-            </li>
+
+                <!-- Menu principal -->
+                <ul class="nav navbar-nav">
+
+                    <!-- Accueil -->
+                    <li class="nav-item">
+                        <a href="/"
+                           class="nav-link">
+                            Accueil
+                        </a>
+                    </li>
+
+                    <!-- Diagnostic IA -->
+                    <li class="nav-item">
+                        <a href="/diagnostic-ia"
+                           class="nav-link">
+                            Diagnostic IA
+                        </a>
+                    </li>
+
+                    <!-- Fonctionnement -->
+                    <li class="nav-item">
+                        <a href="/fonctionnement"
+                           class="nav-link">
+                            Fonctionnement
+                        </a>
+                    </li>
+
+                    <!-- À propos -->
+                    <li class="nav-item">
+                        <a href="/a-propos"
+                           class="nav-link">
+                            À propos
+                        </a>
+                    </li>
+
+                    <!-- Contact -->
+                    <li class="nav-item">
+                        <a href="/contactus"
+                           class="nav-link">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Bouton CTA -->
+                <a href="/diagnostic-ia"
+                   class="btn btn-success">
+                    Commencer un diagnostic
+                </a>
+
+            </div>
 
         </xpath>
 

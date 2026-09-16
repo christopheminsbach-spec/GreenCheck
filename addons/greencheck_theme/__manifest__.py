@@ -5,20 +5,24 @@
 
     "category": "Website/Theme",
 
+    "author": "GreenCheck",
+
+    "license": "LGPL-3",
+
     "depends": [
         "website",
-        "web",
     ],
 
     "data": [
         "views/theme.xml",
-        "views/header.xml",
         "views/homepage.xml",
+        "views/header.xml",
+        "views/diagnostic.xml",
     ],
 
     "assets": {
         "web.assets_frontend": [
-            "greencheck_theme/static/src/scss/style.scss",
+            "greencheck_theme/static/src/css/greencheck.scss",
         ],
     },
 
