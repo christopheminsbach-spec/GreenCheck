@@ -27,6 +27,10 @@ class PlantDiagnostic(models.Model):
         required=True
     )
 
+    image = fields.Image(
+        string="Photo de la plante"
+    )
+
     ai_result = fields.Text(
         string="Résultat de l'analyse IA"
     )

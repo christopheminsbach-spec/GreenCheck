@@ -1,5 +1,6 @@
 from odoo import http
 from odoo.http import request
+import base64
 
 
 class GreenCheckWebsite(http.Controller):
@@ -33,10 +34,22 @@ class GreenCheckWebsite(http.Controller):
                 "message": "Aucune image reçue"
             })
 
-        # Création d'un diagnostic sans stocker l'image
+        # Lecture et encodage de l'image
+        image_data = image.read()
+
+        if not image_data:
+            return request.make_json_response({
+                "success": False,
+                "message": "L'image reçue est vide"
+            })
+
+        image_base64 = base64.b64encode(image_data)
+
+        # Création du diagnostic avec stockage de la photo
         diagnostic = request.env["plant.diagnostic"].sudo().create({
             "name": "Diagnostic plante",
             "state": "draft",
+            "image": image_base64,
         })
 
         state_label = dict(
