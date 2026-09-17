@@ -2,171 +2,186 @@
 
 <odoo>
 
-    <template
-        id="greencheck_diagnostic_page"
-        name="GreenCheck Diagnostic IA">
+<template
+    id="greencheck_diagnostic_page"
+    name="GreenCheck Diagnostic IA">
 
-        <t t-call="website.layout">
+    <t t-call="website.layout">
 
-            <div id="wrap">
+        <div id="wrap">
 
-                <!-- ================================================= -->
-                <!-- DIAGNOSTIC IA -->
-                <!-- ================================================= -->
+            <!-- ================================================= -->
+            <!-- DIAGNOSTIC IA -->
+            <!-- ================================================= -->
 
-                <section class="greencheck-hero">
+            <section class="greencheck-hero">
 
-                    <div class="container text-center">
+                <div class="container text-center">
 
-                        <h1>
-                            🌱 Diagnostic IA
-                        </h1>
+                    <h1>
+                        🌱 Diagnostic IA
+                    </h1>
 
-                        <h2>
-                            Analyse intelligente des plantes
-                        </h2>
+                    <h2>
+                        Analyse intelligente des plantes
+                    </h2>
 
-                        <p>
-                            Importez une photo de votre plante
-                            pour préparer son analyse.
-                        </p>
+                    <p>
+                        Importez une photo de votre plante
+                        pour préparer son analyse.
+                    </p>
 
-                    </div>
+                </div>
 
-                </section>
+            </section>
 
 
-                <!-- ================================================= -->
-                <!-- IMPORTATION DE LA PHOTO -->
-                <!-- ================================================= -->
+            <!-- ================================================= -->
+            <!-- IMPORTATION DE LA PHOTO -->
+            <!-- ================================================= -->
 
-                <section class="greencheck-diagnostic">
+            <section class="greencheck-diagnostic">
 
-                    <div class="container">
+                <div class="container">
 
-                        <div class="row justify-content-center">
+                    <div class="row justify-content-center">
 
-                            <div class="col-lg-8">
+                        <div class="col-lg-8">
 
-                                <div class="card shadow-sm">
+                            <div class="card shadow-sm">
 
-                                    <div class="card-body text-center">
+                                <div class="card-body text-center">
+
+                                    <h2 class="mb-4">
+                                        📷 Photo de votre plante
+                                    </h2>
+
+                                    <p class="text-muted mb-4">
+                                        Sélectionnez une image de votre plante
+                                        depuis votre ordinateur.
+                                    </p>
+
+
+                                    <!-- ================================================= -->
+                                    <!-- BOUTON DE SELECTION -->
+                                    <!-- ================================================= -->
+
+                                    <div class="mb-3">
+
+                                        <label
+                                            for="plant-image"
+                                            class="btn btn-primary">
+
+                                            Choisir une image
+
+                                        </label>
+
+                                        <input
+                                            type="file"
+                                            id="plant-image"
+                                            name="plant_image"
+                                            accept="image/*"
+                                            class="d-none"/>
+
+                                    </div>
+
+
+                                    <!-- ================================================= -->
+                                    <!-- NOM DU FICHIER -->
+                                    <!-- ================================================= -->
+
+                                    <p
+                                        id="selected-file"
+                                        class="text-muted">
+
+                                        Aucune image sélectionnée
+
+                                    </p>
+
+
+                                    <!-- ================================================= -->
+                                    <!-- APERCU DE L'IMAGE -->
+                                    <!-- ================================================= -->
+
+                                    <div
+                                        id="image-preview-container"
+                                        class="mt-4"
+                                        style="display: none;">
+
+                                        <img
+                                            id="image-preview"
+                                            src=""
+                                            alt="Aperçu de la plante"
+                                            class="img-fluid rounded shadow-sm"
+                                            style="max-height: 400px;"/>
+
+                                    </div>
+
+
+                                    <!-- ================================================= -->
+                                    <!-- BOUTON LANCER L'ANALYSE -->
+                                    <!-- ================================================= -->
+
+                                    <div
+                                        id="analysis-action"
+                                        class="mt-4"
+                                        style="display: none;">
+
+                                        <button
+                                            type="button"
+                                            id="start-analysis"
+                                            class="btn btn-success">
+
+                                            🔎 Lancer l'analyse
+
+                                        </button>
+
+                                    </div>
+
+
+                                    <!-- ================================================= -->
+                                    <!-- RESULTAT DE L'ANALYSE IA -->
+                                    <!-- ================================================= -->
+
+                                    <div
+                                        id="analysis-result"
+                                        class="mt-5"
+                                        style="display: none;">
+
+                                        <hr class="my-4"/>
 
                                         <h2 class="mb-4">
-                                            📷 Photo de votre plante
+                                            🌱 Résultat de l'analyse IA
                                         </h2>
 
-                                        <p class="text-muted mb-4">
-                                            Sélectionnez une image de votre plante
-                                            depuis votre ordinateur.
-                                        </p>
-
 
                                         <!-- ================================================= -->
-                                        <!-- BOUTON DE SELECTION -->
+                                        <!-- IDENTIFICATION -->
                                         <!-- ================================================= -->
 
-                                        <div class="mb-3">
+                                        <div class="text-start">
 
-                                            <label
-                                                for="plant-image"
-                                                class="btn btn-primary">
-
-                                                Choisir une image
-
-                                            </label>
-
-                                            <input
-                                                type="file"
-                                                id="plant-image"
-                                                name="plant_image"
-                                                accept="image/*"
-                                                class="d-none"/>
-
-                                        </div>
-
-
-                                        <!-- ================================================= -->
-                                        <!-- NOM DU FICHIER -->
-                                        <!-- ================================================= -->
-
-                                        <p
-                                            id="selected-file"
-                                            class="text-muted">
-
-                                            Aucune image sélectionnée
-
-                                        </p>
-
-
-                                        <!-- ================================================= -->
-                                        <!-- APERCU DE L'IMAGE -->
-                                        <!-- ================================================= -->
-
-                                        <div
-                                            id="image-preview-container"
-                                            class="mt-4"
-                                            style="display: none;">
-
-                                            <img
-                                                id="image-preview"
-                                                src=""
-                                                alt="Aperçu de la plante"
-                                                class="img-fluid rounded shadow-sm"
-                                                style="max-height: 400px;"/>
-
-                                        </div>
-
-
-                                        <!-- ================================================= -->
-                                        <!-- BOUTON LANCER L'ANALYSE -->
-                                        <!-- ================================================= -->
-
-                                        <div
-                                            id="analysis-action"
-                                            class="mt-4"
-                                            style="display: none;">
-
-                                            <button
-                                                type="button"
-                                                id="start-analysis"
-                                                class="btn btn-success">
-
-                                                🔎 Lancer l'analyse
-
-                                            </button>
-
-                                        </div>
-
-
-                                        <!-- ================================================= -->
-                                        <!-- RESULTAT DE L'ANALYSE IA -->
-                                        <!-- ================================================= -->
-
-                                        <div
-                                            id="analysis-result"
-                                            class="mt-5"
-                                            style="display: none;">
-
-                                            <hr class="my-4"/>
-
-                                            <h2 class="mb-4">
-                                                🌱 Résultat de l'analyse IA
-                                            </h2>
-
-                                            <div class="text-start">
+                                            <div class="gc-result-block">
 
                                                 <h4>
-                                                    Identification
+                                                    🌿 Identification
                                                 </h4>
 
                                                 <p id="ai-result">
                                                     —
                                                 </p>
 
+                                            </div>
 
-                                                <h4 class="mt-4">
-                                                    Confiance IA
+
+                                            <!-- ================================================= -->
+                                            <!-- CONFIANCE IA -->
+                                            <!-- ================================================= -->
+
+                                            <div class="gc-result-block">
+
+                                                <h4>
+                                                    📊 Confiance IA
                                                 </h4>
 
                                                 <p>
@@ -175,15 +190,25 @@
                                                     </strong>
                                                 </p>
 
+                                            </div>
 
-                                                <h4 class="mt-4">
+
+                                            <!-- ================================================= -->
+                                            <!-- RECOMMANDATIONS -->
+                                            <!-- ================================================= -->
+
+                                            <div class="gc-result-block">
+
+                                                <h4>
                                                     💡 Recommandations
                                                 </h4>
 
                                                 <p
                                                     id="ai-recommendations"
                                                     style="white-space: pre-line;">
+
                                                     —
+
                                                 </p>
 
                                             </div>
@@ -200,141 +225,270 @@
 
                     </div>
 
-                </section>
+                </div>
 
-            </div>
+            </section>
+
+        </div>
 
 
-            <!-- ================================================= -->
-            <!-- JAVASCRIPT DIAGNOSTIC -->
-            <!-- ================================================= -->
+        <!-- ================================================= -->
+        <!-- JAVASCRIPT DIAGNOSTIC -->
+        <!-- ================================================= -->
 
-            <script>
+        <script>
 
-                document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function () {
 
-                    // =================================================
-                    // ELEMENTS HTML
-                    // =================================================
+                // =================================================
+                // ELEMENTS HTML
+                // =================================================
 
-                    const input =
-                        document.getElementById("plant-image");
+                const input =
+                    document.getElementById("plant-image");
 
-                    const fileName =
-                        document.getElementById("selected-file");
+                const fileName =
+                    document.getElementById("selected-file");
 
-                    const previewContainer =
-                        document.getElementById(
-                            "image-preview-container"
+                const previewContainer =
+                    document.getElementById(
+                        "image-preview-container"
+                    );
+
+                const preview =
+                    document.getElementById("image-preview");
+
+                const analysisAction =
+                    document.getElementById("analysis-action");
+
+                const startAnalysis =
+                    document.getElementById("start-analysis");
+
+
+                // =================================================
+                // IDENTIFIANT DU DIAGNOSTIC ODOO
+                // =================================================
+
+                let diagnosticId = null;
+
+
+                // =================================================
+                // VERIFICATION DE LA PAGE
+                // =================================================
+
+                if (!input) {
+                    return;
+                }
+
+
+                // =================================================
+                // SELECTION DE L'IMAGE
+                // =================================================
+
+                input.addEventListener(
+                    "change",
+                    async function () {
+
+                        const file = input.files[0];
+
+
+                        // =================================================
+                        // AUCUNE IMAGE
+                        // =================================================
+
+                        if (!file) {
+
+                            fileName.textContent =
+                                "Aucune image sélectionnée";
+
+                            previewContainer.style.display =
+                                "none";
+
+                            analysisAction.style.display =
+                                "none";
+
+                            preview.src = "";
+
+                            diagnosticId = null;
+
+                            return;
+                        }
+
+
+                        // =================================================
+                        // APERCU LOCAL DE L'IMAGE
+                        // =================================================
+
+                        fileName.textContent =
+                            "Image sélectionnée : " + file.name;
+
+
+                        const imageUrl =
+                            URL.createObjectURL(file);
+
+                        preview.src = imageUrl;
+
+                        previewContainer.style.display =
+                            "block";
+
+
+                        // =================================================
+                        // AFFICHAGE DU BOUTON D'ANALYSE
+                        // =================================================
+
+                        analysisAction.style.display =
+                            "block";
+
+
+                        // =================================================
+                        // PREPARATION DE L'ENVOI
+                        // =================================================
+
+                        const formData =
+                            new FormData();
+
+                        formData.append(
+                            "plant_image",
+                            file
                         );
 
-                    const preview =
-                        document.getElementById("image-preview");
 
-                    const analysisAction =
-                        document.getElementById("analysis-action");
+                        // =================================================
+                        // ENVOI DE L'IMAGE VERS ODOO
+                        // =================================================
 
-                    const startAnalysis =
-                        document.getElementById("start-analysis");
+                        try {
 
-
-                    // =================================================
-                    // IDENTIFIANT DU DIAGNOSTIC ODOO
-                    // =================================================
-
-                    let diagnosticId = null;
-
-
-                    // =================================================
-                    // VERIFICATION DE LA PAGE
-                    // =================================================
-
-                    if (!input) {
-                        return;
-                    }
+                            const response =
+                                await fetch(
+                                    "/diagnostic/upload",
+                                    {
+                                        method: "POST",
+                                        body: formData
+                                    }
+                                );
 
 
-                    // =================================================
-                    // SELECTION DE L'IMAGE
-                    // =================================================
+                            const result =
+                                await response.json();
 
-                    input.addEventListener(
-                        "change",
-                        async function () {
 
-                            const file = input.files[0];
+                            console.log(
+                                "Réponse Odoo :",
+                                result
+                            );
 
 
                             // =================================================
-                            // AUCUNE IMAGE
+                            // DIAGNOSTIC CREE
                             // =================================================
 
-                            if (!file) {
+                            if (result.success) {
+
+                                diagnosticId =
+                                    result.diagnostic_id;
+
 
                                 fileName.textContent =
-                                    "Aucune image sélectionnée";
+                                    "Image envoyée : "
+                                    + result.filename;
 
-                                previewContainer.style.display =
-                                    "none";
 
-                                analysisAction.style.display =
-                                    "none";
+                                console.log(
+                                    "Diagnostic ID :",
+                                    diagnosticId
+                                );
 
-                                preview.src = "";
+
+                            } else {
 
                                 diagnosticId = null;
+
+                                fileName.textContent =
+                                    result.message;
+
+                            }
+
+
+                        } catch (error) {
+
+                            console.error(
+                                "Erreur lors de l'envoi de l'image :",
+                                error
+                            );
+
+
+                            diagnosticId = null;
+
+                            fileName.textContent =
+                                "Erreur lors de l'envoi de l'image";
+
+                        }
+
+                    }
+                );
+
+
+                // =================================================
+                // LANCEMENT DE L'ANALYSE
+                // =================================================
+
+                if (startAnalysis) {
+
+                    startAnalysis.addEventListener(
+                        "click",
+                        async function () {
+
+
+                            // =================================================
+                            // VERIFICATION DU DIAGNOSTIC
+                            // =================================================
+
+                            if (!diagnosticId) {
+
+                                console.error(
+                                    "Aucun diagnostic disponible"
+                                );
+
+                                fileName.textContent =
+                                    "Veuillez sélectionner une image";
 
                                 return;
                             }
 
 
                             // =================================================
-                            // APERCU LOCAL DE L'IMAGE
+                            // DESACTIVATION DU BOUTON
                             // =================================================
 
-                            fileName.textContent =
-                                "Image sélectionnée : " + file.name;
+                            startAnalysis.disabled = true;
 
-
-                            const imageUrl =
-                                URL.createObjectURL(file);
-
-                            preview.src = imageUrl;
-
-                            previewContainer.style.display =
-                                "block";
+                            startAnalysis.textContent =
+                                "⏳ Analyse en cours...";
 
 
                             // =================================================
-                            // AFFICHAGE DU BOUTON D'ANALYSE
-                            // =================================================
-
-                            analysisAction.style.display =
-                                "block";
-
-
-                            // =================================================
-                            // PREPARATION DE L'ENVOI
+                            // PREPARATION DE LA REQUETE
                             // =================================================
 
                             const formData =
                                 new FormData();
 
                             formData.append(
-                                "plant_image",
-                                file
+                                "diagnostic_id",
+                                diagnosticId
                             );
 
 
                             // =================================================
-                            // ENVOI DE L'IMAGE VERS ODOO
+                            // APPEL DE LA ROUTE ODOO
                             // =================================================
 
                             try {
 
                                 const response =
                                     await fetch(
-                                        "/diagnostic/upload",
+                                        "/diagnostic/start",
                                         {
                                             method: "POST",
                                             body: formData
@@ -347,278 +501,134 @@
 
 
                                 console.log(
-                                    "Réponse Odoo :",
+                                    "Réponse analyse :",
                                     result
                                 );
 
 
                                 // =================================================
-                                // DIAGNOSTIC CREE
+                                // ANALYSE TERMINEE
                                 // =================================================
 
                                 if (result.success) {
 
-                                    diagnosticId =
-                                        result.diagnostic_id;
-
+                                    // =================================================
+                                    // AFFICHAGE DE L'ETAT
+                                    // =================================================
 
                                     fileName.textContent =
-                                        "Image envoyée : "
-                                        + result.filename;
+                                        "✅ " + result.state_label;
 
+
+                                    startAnalysis.textContent =
+                                        "✅ Analyse terminée";
+
+
+                                    // =================================================
+                                    // ELEMENTS DU RESULTAT IA
+                                    // =================================================
+
+                                    const analysisResult =
+                                        document.getElementById(
+                                            "analysis-result"
+                                        );
+
+                                    const aiResult =
+                                        document.getElementById(
+                                            "ai-result"
+                                        );
+
+                                    const aiConfidence =
+                                        document.getElementById(
+                                            "ai-confidence"
+                                        );
+
+                                    const aiRecommendations =
+                                        document.getElementById(
+                                            "ai-recommendations"
+                                        );
+
+
+                                    // =================================================
+                                    // AFFICHAGE DU RESULTAT
+                                    // =================================================
+
+                                    if (analysisResult) {
+
+                                        analysisResult.style.display =
+                                            "block";
+
+                                    }
+
+
+                                    if (aiResult) {
+
+                                        aiResult.textContent =
+                                            result.ai_result ||
+                                            "Aucun résultat disponible";
+
+                                    }
+
+
+                                    if (aiConfidence) {
+
+                                        const confidence =
+                                            Number(
+                                                result.ai_confidence || 0
+                                            ) * 100;
+
+                                        aiConfidence.textContent =
+                                            confidence.toFixed(0) + " %";
+
+                                    }
+
+
+                                    if (aiRecommendations) {
+
+                                        aiRecommendations.textContent =
+                                            result.recommendations ||
+                                            "Aucune recommandation disponible";
+
+                                    }
+
+
+                                    // =================================================
+                                    // BOUTON
+                                    // =================================================
+
+                                    startAnalysis.disabled =
+                                        true;
+
+
+                                    // =================================================
+                                    // CONSOLE
+                                    // =================================================
 
                                     console.log(
-                                        "Diagnostic ID :",
-                                        diagnosticId
+                                        "État du diagnostic :",
+                                        result.state
+                                    );
+
+                                    console.log(
+                                        "Résultat IA :",
+                                        result.ai_result
+                                    );
+
+                                    console.log(
+                                        "Confiance IA :",
+                                        result.ai_confidence
+                                    );
+
+                                    console.log(
+                                        "Recommandations :",
+                                        result.recommendations
                                     );
 
 
                                 } else {
 
-                                    diagnosticId = null;
-
                                     fileName.textContent =
                                         result.message;
-
-                                }
-
-
-                            } catch (error) {
-
-                                console.error(
-                                    "Erreur lors de l'envoi de l'image :",
-                                    error
-                                );
-
-
-                                diagnosticId = null;
-
-                                fileName.textContent =
-                                    "Erreur lors de l'envoi de l'image";
-
-                            }
-
-                        }
-                    );
-
-
-                    // =================================================
-                    // LANCEMENT DE L'ANALYSE
-                    // =================================================
-
-                    if (startAnalysis) {
-
-                        startAnalysis.addEventListener(
-                            "click",
-                            async function () {
-
-
-                                // =================================================
-                                // VERIFICATION DU DIAGNOSTIC
-                                // =================================================
-
-                                if (!diagnosticId) {
-
-                                    console.error(
-                                        "Aucun diagnostic disponible"
-                                    );
-
-                                    fileName.textContent =
-                                        "Veuillez sélectionner une image";
-
-                                    return;
-                                }
-
-
-                                // =================================================
-                                // DESACTIVATION DU BOUTON
-                                // =================================================
-
-                                startAnalysis.disabled = true;
-
-                                startAnalysis.textContent =
-                                    "⏳ Analyse en cours...";
-
-
-                                // =================================================
-                                // PREPARATION DE LA REQUETE
-                                // =================================================
-
-                                const formData =
-                                    new FormData();
-
-                                formData.append(
-                                    "diagnostic_id",
-                                    diagnosticId
-                                );
-
-
-                                // =================================================
-                                // APPEL DE LA ROUTE ODOO
-                                // =================================================
-
-                                try {
-
-                                    const response =
-                                        await fetch(
-                                            "/diagnostic/start",
-                                            {
-                                                method: "POST",
-                                                body: formData
-                                            }
-                                        );
-
-
-                                    const result =
-                                        await response.json();
-
-
-                                    console.log(
-                                        "Réponse analyse :",
-                                        result
-                                    );
-
-
-                                    // =================================================
-                                    // ANALYSE TERMINEE
-                                    // =================================================
-
-                                    if (result.success) {
-
-                                        // =================================================
-                                        // AFFICHAGE DE L'ETAT
-                                        // =================================================
-
-                                        fileName.textContent =
-                                            "✅ " + result.state_label;
-
-
-                                        startAnalysis.textContent =
-                                            "✅ Analyse terminée";
-
-
-                                        // =================================================
-                                        // ELEMENTS DU RESULTAT IA
-                                        // =================================================
-
-                                        const analysisResult =
-                                            document.getElementById(
-                                                "analysis-result"
-                                            );
-
-                                        const aiResult =
-                                            document.getElementById(
-                                                "ai-result"
-                                            );
-
-                                        const aiConfidence =
-                                            document.getElementById(
-                                                "ai-confidence"
-                                            );
-
-                                        const aiRecommendations =
-                                            document.getElementById(
-                                                "ai-recommendations"
-                                            );
-
-
-                                        // =================================================
-                                        // AFFICHAGE DU RESULTAT
-                                        // =================================================
-
-                                        if (analysisResult) {
-
-                                            analysisResult.style.display =
-                                                "block";
-                                        }
-
-
-                                        if (aiResult) {
-
-                                            aiResult.textContent =
-                                                result.ai_result ||
-                                                "Aucun résultat disponible";
-                                        }
-
-
-                                        if (aiConfidence) {
-
-                                            const confidence =
-                                                Number(
-                                                    result.ai_confidence || 0
-                                                ) * 100;
-
-                                            aiConfidence.textContent =
-                                                confidence.toFixed(0) + " %";
-                                        }
-
-
-                                        if (aiRecommendations) {
-
-                                            aiRecommendations.textContent =
-                                                result.recommendations ||
-                                                "Aucune recommandation disponible";
-                                        }
-
-
-                                        // =================================================
-                                        // BOUTON
-                                        // =================================================
-
-                                        startAnalysis.disabled =
-                                            true;
-
-
-                                        // =================================================
-                                        // CONSOLE
-                                        // =================================================
-
-                                        console.log(
-                                            "État du diagnostic :",
-                                            result.state
-                                        );
-
-                                        console.log(
-                                            "Résultat IA :",
-                                            result.ai_result
-                                        );
-
-                                        console.log(
-                                            "Confiance IA :",
-                                            result.ai_confidence
-                                        );
-
-                                        console.log(
-                                            "Recommandations :",
-                                            result.recommendations
-                                        );
-
-
-                                    } else {
-
-                                        fileName.textContent =
-                                            result.message;
-
-                                        startAnalysis.disabled =
-                                            false;
-
-                                        startAnalysis.textContent =
-                                            "🔎 Lancer l'analyse";
-
-                                    }
-
-
-                                } catch (error) {
-
-                                    console.error(
-                                        "Erreur lors du lancement de l'analyse :",
-                                        error
-                                    );
-
-
-                                    fileName.textContent =
-                                        "Erreur lors du lancement de l'analyse";
-
 
                                     startAnalysis.disabled =
                                         false;
@@ -628,17 +638,39 @@
 
                                 }
 
+
+                            } catch (error) {
+
+                                console.error(
+                                    "Erreur lors du lancement de l'analyse :",
+                                    error
+                                );
+
+
+                                fileName.textContent =
+                                    "Erreur lors du lancement de l'analyse";
+
+
+                                startAnalysis.disabled =
+                                    false;
+
+                                startAnalysis.textContent =
+                                    "🔎 Lancer l'analyse";
+
                             }
-                        );
 
-                    }
+                        }
+                    );
 
-                });
+                }
 
-            </script>
+            });
 
-        </t>
+        </script>
 
-    </template>
+    </t>
+
+</template>
+
 
 </odoo>

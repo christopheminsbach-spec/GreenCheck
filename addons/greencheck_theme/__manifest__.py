@@ -24,6 +24,7 @@
     "assets": {
         "web.assets_frontend": [
             "greencheck_theme/static/src/css/greencheck.scss",
+            "greencheck_theme/static/src/css/diagnostic.scss",
         ],
     },
 
