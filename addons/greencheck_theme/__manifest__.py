@@ -14,6 +14,7 @@
     ],
 
     "data": [
+        "security/ir.model.access.csv",
         "views/theme.xml",
         "views/homepage.xml",
         "views/header.xml",
