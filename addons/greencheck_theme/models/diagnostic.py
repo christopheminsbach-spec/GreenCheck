@@ -42,3 +42,20 @@ class PlantDiagnostic(models.Model):
     def action_start_analysis(self):
         for diagnostic in self:
             diagnostic.state = "analyzing"
+
+    def action_simulate_analysis(self):
+        for diagnostic in self:
+            diagnostic.ai_result = (
+                "Plante identifiée : Rosier\n"
+                "État général : bonne santé"
+            )
+
+            diagnostic.ai_confidence = 0.92
+
+            diagnostic.recommendations = (
+                "Arroser modérément.\n"
+                "Placer la plante dans un endroit lumineux.\n"
+                "Surveiller l'apparition éventuelle de parasites."
+            )
+
+            diagnostic.state = "done"

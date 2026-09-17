@@ -138,6 +138,58 @@
 
                                         </div>
 
+
+                                        <!-- ================================================= -->
+                                        <!-- RESULTAT DE L'ANALYSE IA -->
+                                        <!-- ================================================= -->
+
+                                        <div
+                                            id="analysis-result"
+                                            class="mt-5"
+                                            style="display: none;">
+
+                                            <hr class="my-4"/>
+
+                                            <h2 class="mb-4">
+                                                🌱 Résultat de l'analyse IA
+                                            </h2>
+
+                                            <div class="text-start">
+
+                                                <h4>
+                                                    Identification
+                                                </h4>
+
+                                                <p id="ai-result">
+                                                    —
+                                                </p>
+
+
+                                                <h4 class="mt-4">
+                                                    Confiance IA
+                                                </h4>
+
+                                                <p>
+                                                    <strong id="ai-confidence">
+                                                        —
+                                                    </strong>
+                                                </p>
+
+
+                                                <h4 class="mt-4">
+                                                    💡 Recommandations
+                                                </h4>
+
+                                                <p
+                                                    id="ai-recommendations"
+                                                    style="white-space: pre-line;">
+                                                    —
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
                                     </div>
 
                                 </div>
@@ -428,22 +480,117 @@
 
 
                                     // =================================================
-                                    // ANALYSE LANCEE
+                                    // ANALYSE TERMINEE
                                     // =================================================
 
                                     if (result.success) {
 
+                                        // =================================================
+                                        // AFFICHAGE DE L'ETAT
+                                        // =================================================
+
                                         fileName.textContent =
-                                            "🔎 " + result.state_label;
+                                            "✅ " + result.state_label;
 
 
                                         startAnalysis.textContent =
-                                            "🔎 En analyse";
+                                            "✅ Analyse terminée";
 
+
+                                        // =================================================
+                                        // ELEMENTS DU RESULTAT IA
+                                        // =================================================
+
+                                        const analysisResult =
+                                            document.getElementById(
+                                                "analysis-result"
+                                            );
+
+                                        const aiResult =
+                                            document.getElementById(
+                                                "ai-result"
+                                            );
+
+                                        const aiConfidence =
+                                            document.getElementById(
+                                                "ai-confidence"
+                                            );
+
+                                        const aiRecommendations =
+                                            document.getElementById(
+                                                "ai-recommendations"
+                                            );
+
+
+                                        // =================================================
+                                        // AFFICHAGE DU RESULTAT
+                                        // =================================================
+
+                                        if (analysisResult) {
+
+                                            analysisResult.style.display =
+                                                "block";
+                                        }
+
+
+                                        if (aiResult) {
+
+                                            aiResult.textContent =
+                                                result.ai_result ||
+                                                "Aucun résultat disponible";
+                                        }
+
+
+                                        if (aiConfidence) {
+
+                                            const confidence =
+                                                Number(
+                                                    result.ai_confidence || 0
+                                                ) * 100;
+
+                                            aiConfidence.textContent =
+                                                confidence.toFixed(0) + " %";
+                                        }
+
+
+                                        if (aiRecommendations) {
+
+                                            aiRecommendations.textContent =
+                                                result.recommendations ||
+                                                "Aucune recommandation disponible";
+                                        }
+
+
+                                        // =================================================
+                                        // BOUTON
+                                        // =================================================
+
+                                        startAnalysis.disabled =
+                                            true;
+
+
+                                        // =================================================
+                                        // CONSOLE
+                                        // =================================================
 
                                         console.log(
                                             "État du diagnostic :",
                                             result.state
+                                        );
+
+                                        console.log(
+                                            "Résultat IA :",
+                                            result.ai_result
+                                        );
+
+                                        console.log(
+                                            "Confiance IA :",
+                                            result.ai_confidence
+                                        );
+
+                                        console.log(
+                                            "Recommandations :",
+                                            result.recommendations
                                         );
 
 

@@ -78,7 +78,11 @@ class GreenCheckWebsite(http.Controller):
                 "message": "Diagnostic introuvable"
             })
 
+        # Passage du diagnostic à l'état "En analyse"
         diagnostic.action_start_analysis()
+
+        # Simulation de l'analyse IA
+        diagnostic.action_simulate_analysis()
 
         state_label = dict(
             diagnostic._fields["state"].selection
@@ -89,4 +93,7 @@ class GreenCheckWebsite(http.Controller):
             "diagnostic_id": diagnostic.id,
             "state": diagnostic.state,
             "state_label": state_label,
+            "ai_result": diagnostic.ai_result,
+            "ai_confidence": diagnostic.ai_confidence,
+            "recommendations": diagnostic.recommendations,
         })
