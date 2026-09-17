@@ -157,3 +157,48 @@
     white-space: pre-line;
 
 }
+
+/* ================================================= */
+/* CHARGEMENT ANALYSE IA */
+/* ================================================= */
+
+.gc-analysis-loading {
+    padding: 20px;
+    text-align: center;
+}
+
+.gc-loading-spinner {
+    font-size: 32px;
+    animation: gc-loading-pulse 1.2s ease-in-out infinite;
+}
+
+.gc-loading-title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.gc-loading-text {
+    margin-top: 5px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+@keyframes gc-loading-pulse {
+
+    0% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+
+}

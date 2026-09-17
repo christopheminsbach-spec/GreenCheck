@@ -2,6 +2,7 @@
 
 <odoo>
 
+
 <template
     id="greencheck_diagnostic_page"
     name="GreenCheck Diagnostic IA">
@@ -140,6 +141,34 @@
 
 
                                     <!-- ================================================= -->
+                                    <!-- MESSAGE ANALYSE EN COURS -->
+                                    <!-- ================================================= -->
+
+                                    <div
+                                        id="analysis-loading"
+                                        class="mt-4"
+                                        style="display: none;">
+
+                                        <div class="gc-analysis-loading">
+
+                                            <div class="gc-loading-spinner">
+                                                ⏳
+                                            </div>
+
+                                            <div class="gc-loading-title">
+                                                Analyse IA en cours...
+                                            </div>
+
+                                            <div class="gc-loading-text">
+                                                Analyse de votre plante, veuillez patienter.
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- ================================================= -->
                                     <!-- RESULTAT DE L'ANALYSE IA -->
                                     <!-- ================================================= -->
 
@@ -264,6 +293,23 @@
                 const startAnalysis =
                     document.getElementById("start-analysis");
 
+                const analysisLoading =
+                    document.getElementById("analysis-loading");
+
+                const analysisResult =
+                    document.getElementById("analysis-result");
+
+                const aiResult =
+                    document.getElementById("ai-result");
+
+                const aiConfidence =
+                    document.getElementById("ai-confidence");
+
+                const aiRecommendations =
+                    document.getElementById(
+                        "ai-recommendations"
+                    );
+
 
                 // =================================================
                 // IDENTIFIANT DU DIAGNOSTIC ODOO
@@ -289,7 +335,8 @@
                     "change",
                     async function () {
 
-                        const file = input.files[0];
+                        const file =
+                            input.files[0];
 
 
                         // =================================================
@@ -307,6 +354,20 @@
                             analysisAction.style.display =
                                 "none";
 
+                            if (analysisLoading) {
+
+                                analysisLoading.style.display =
+                                    "none";
+
+                            }
+
+                            if (analysisResult) {
+
+                                analysisResult.style.display =
+                                    "none";
+
+                            }
+
                             preview.src = "";
 
                             diagnosticId = null;
@@ -316,17 +377,50 @@
 
 
                         // =================================================
+                        // REINITIALISATION DU RESULTAT
+                        // =================================================
+
+                        diagnosticId = null;
+
+                        if (analysisLoading) {
+
+                            analysisLoading.style.display =
+                                "none";
+
+                        }
+
+                        if (analysisResult) {
+
+                            analysisResult.style.display =
+                                "none";
+
+                        }
+
+                        if (startAnalysis) {
+
+                            startAnalysis.disabled =
+                                false;
+
+                            startAnalysis.textContent =
+                                "🔎 Lancer l'analyse";
+
+                        }
+
+
+                        // =================================================
                         // APERCU LOCAL DE L'IMAGE
                         // =================================================
 
                         fileName.textContent =
-                            "Image sélectionnée : " + file.name;
+                            "Image sélectionnée : "
+                            + file.name;
 
 
                         const imageUrl =
                             URL.createObjectURL(file);
 
-                        preview.src = imageUrl;
+                        preview.src =
+                            imageUrl;
 
                         previewContainer.style.display =
                             "block";
@@ -407,6 +501,9 @@
                                 fileName.textContent =
                                     result.message;
 
+                                analysisAction.style.display =
+                                    "none";
+
                             }
 
 
@@ -422,6 +519,9 @@
 
                             fileName.textContent =
                                 "Erreur lors de l'envoi de l'image";
+
+                            analysisAction.style.display =
+                                "none";
 
                         }
 
@@ -461,10 +561,23 @@
                             // DESACTIVATION DU BOUTON
                             // =================================================
 
-                            startAnalysis.disabled = true;
+                            startAnalysis.disabled =
+                                true;
 
                             startAnalysis.textContent =
                                 "⏳ Analyse en cours...";
+
+
+                            // =================================================
+                            // AFFICHAGE DU CHARGEMENT
+                            // =================================================
+
+                            if (analysisLoading) {
+
+                                analysisLoading.style.display =
+                                    "block";
+
+                            }
 
 
                             // =================================================
@@ -513,6 +626,31 @@
                                 if (result.success) {
 
                                     // =================================================
+                                    // ATTENTE MINIMUM POUR LE CHARGEMENT
+                                    // =================================================
+
+                                    await new Promise(
+                                        resolve =>
+                                            setTimeout(
+                                                resolve,
+                                                1500
+                                            )
+                                    );
+
+
+                                    // =================================================
+                                    // MASQUER LE CHARGEMENT
+                                    // =================================================
+
+                                    if (analysisLoading) {
+
+                                        analysisLoading.style.display =
+                                            "none";
+
+                                    }
+
+
+                                    // =================================================
                                     // AFFICHAGE DE L'ETAT
                                     // =================================================
 
@@ -522,31 +660,6 @@
 
                                     startAnalysis.textContent =
                                         "✅ Analyse terminée";
-
-
-                                    // =================================================
-                                    // ELEMENTS DU RESULTAT IA
-                                    // =================================================
-
-                                    const analysisResult =
-                                        document.getElementById(
-                                            "analysis-result"
-                                        );
-
-                                    const aiResult =
-                                        document.getElementById(
-                                            "ai-result"
-                                        );
-
-                                    const aiConfidence =
-                                        document.getElementById(
-                                            "ai-confidence"
-                                        );
-
-                                    const aiRecommendations =
-                                        document.getElementById(
-                                            "ai-recommendations"
-                                        );
 
 
                                     // =================================================
@@ -578,7 +691,8 @@
                                             ) * 100;
 
                                         aiConfidence.textContent =
-                                            confidence.toFixed(0) + " %";
+                                            confidence.toFixed(0)
+                                            + " %";
 
                                     }
 
@@ -627,6 +741,18 @@
 
                                 } else {
 
+                                    // =================================================
+                                    // MASQUER LE CHARGEMENT EN CAS D'ECHEC
+                                    // =================================================
+
+                                    if (analysisLoading) {
+
+                                        analysisLoading.style.display =
+                                            "none";
+
+                                    }
+
+
                                     fileName.textContent =
                                         result.message;
 
@@ -640,6 +766,18 @@
 
 
                             } catch (error) {
+
+                                // =================================================
+                                // MASQUER LE CHARGEMENT EN CAS D'ERREUR
+                                // =================================================
+
+                                if (analysisLoading) {
+
+                                    analysisLoading.style.display =
+                                        "none";
+
+                                }
+
 
                                 console.error(
                                     "Erreur lors du lancement de l'analyse :",
