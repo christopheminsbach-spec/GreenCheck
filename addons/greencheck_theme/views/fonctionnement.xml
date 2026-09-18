@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template
+        id="greencheck_fonctionnement"
+        name="GreenCheck - Fonctionnement">
+
+        <t t-call="website.layout">
+
+            <div id="wrap">
+
+                <section class="greencheck-fonctionnement">
+
+                    <div class="container">
+
+                        <!-- INTRODUCTION -->
+
+                        <div class="greencheck-fonctionnement-header text-center">
+
+                            <h1>
+                                Comment fonctionne GreenCheck ?
+                            </h1>
+
+                            <p>
+                                Découvrez en quelques étapes comment
+                                GreenCheck utilise l'intelligence artificielle
+                                pour vous aider à mieux comprendre vos plantes.
+                            </p>
+
+                        </div>
+
+
+                        <!-- ETAPES -->
+
+                        <div class="row greencheck-fonctionnement-steps">
+
+                            <!-- ETAPE 1 -->
+
+                            <div class="col-lg-3 col-md-6 mb-4">
+
+                                <div class="greencheck-step">
+
+                                    <div class="greencheck-step-icon">
+                                        📷
+                                    </div>
+
+                                    <div class="greencheck-step-number">
+                                        1
+                                    </div>
+
+                                    <h3>
+                                        Prenez une photo
+                                    </h3>
+
+                                    <p>
+                                        Photographiez simplement votre plante
+                                        afin de permettre à GreenCheck
+                                        d'analyser son état.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ETAPE 2 -->
+
+                            <div class="col-lg-3 col-md-6 mb-4">
+
+                                <div class="greencheck-step">
+
+                                    <div class="greencheck-step-icon">
+                                        🤖
+                                    </div>
+
+                                    <div class="greencheck-step-number">
+                                        2
+                                    </div>
+
+                                    <h3>
+                                        Analyse IA
+                                    </h3>
+
+                                    <p>
+                                        Notre intelligence artificielle analyse
+                                        l'image et recherche les caractéristiques
+                                        importantes de votre plante.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ETAPE 3 -->
+
+                            <div class="col-lg-3 col-md-6 mb-4">
+
+                                <div class="greencheck-step">
+
+                                    <div class="greencheck-step-icon">
+                                        🌱
+                                    </div>
+
+                                    <div class="greencheck-step-number">
+                                        3
+                                    </div>
+
+                                    <h3>
+                                        Identification
+                                    </h3>
+
+                                    <p>
+                                        GreenCheck vous présente le résultat
+                                        de l'analyse et les informations
+                                        identifiées par le système.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ETAPE 4 -->
+
+                            <div class="col-lg-3 col-md-6 mb-4">
+
+                                <div class="greencheck-step">
+
+                                    <div class="greencheck-step-icon">
+                                        💡
+                                    </div>
+
+                                    <div class="greencheck-step-number">
+                                        4
+                                    </div>
+
+                                    <h3>
+                                        Conseils
+                                    </h3>
+
+                                    <p>
+                                        Découvrez des recommandations simples
+                                        pour mieux comprendre et prendre soin
+                                        de votre plante.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTION -->
+
+                        <div class="greencheck-fonctionnement-action text-center">
+
+                            <h2>
+                                Prêt à analyser votre plante ?
+                            </h2>
+
+                            <p>
+                                Lancez votre diagnostic intelligent
+                                en quelques secondes.
+                            </p>
+
+                            <a
+                                href="/diagnostic-ia"
+                                class="btn btn-success greencheck-fonctionnement-button">
+
+                                Commencer un diagnostic
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>
+

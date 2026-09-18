@@ -20,6 +20,7 @@
         "views/header.xml",
         "views/diagnostic.xml",
         "views/footer.xml",
+        "views/fonctionnement.xml",
     ],
 
     "assets": {

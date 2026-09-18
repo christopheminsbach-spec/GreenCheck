@@ -18,6 +18,18 @@ class GreenCheckWebsite(http.Controller):
         )
 
     @http.route(
+        "/fonctionnement",
+        type="http",
+        auth="public",
+        website=True
+    )
+    def fonctionnement(self):
+
+        return request.render(
+            "greencheck_theme.greencheck_fonctionnement"
+        )
+
+    @http.route(
         "/diagnostic/upload",
         type="http",
         auth="public",
