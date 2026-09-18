@@ -1,0 +1,112 @@
+/* ===================================
+   GreenCheck Footer
+   Footer professionnel
+=================================== */
+
+.greencheck-footer {
+    padding: 48px 0 20px;
+    background: #ffffff;
+    border-top: 1px solid rgba(76, 175, 80, 0.15);
+    box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.greencheck-footer-brand {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #2e7d32;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.greencheck-footer-brand:hover {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+.greencheck-footer-description {
+    max-width: 420px;
+    margin: 0;
+    color: #666666;
+    line-height: 1.7;
+}
+
+.greencheck-footer h5 {
+    margin-bottom: 18px;
+    color: #2e7d32;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.greencheck-footer ul {
+    margin: 0;
+    padding: 0;
+}
+
+.greencheck-footer li {
+    margin-bottom: 9px;
+}
+
+.greencheck-footer li a {
+    color: #555555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.greencheck-footer li a:hover {
+    color: #4caf50;
+}
+
+.greencheck-footer p {
+    color: #666666;
+    line-height: 1.7;
+}
+
+.greencheck-footer-button {
+    margin-top: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.greencheck-footer-button:hover {
+    background-color: #2e7d32;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.greencheck-footer-bottom {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+}
+
+.greencheck-footer-bottom p {
+    margin: 0;
+    color: #888888;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+
+    .greencheck-footer {
+        padding: 36px 20px 18px;
+    }
+
+    .greencheck-footer h5 {
+        margin-top: 8px;
+    }
+
+    .greencheck-footer-bottom {
+        margin-top: 24px;
+    }
+
+}

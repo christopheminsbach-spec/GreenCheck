@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template
+        id="greencheck_footer"
+        inherit_id="website.footer_custom"
+        name="GreenCheck Footer">
+
+        <xpath expr="//div[@id='footer']" position="replace">
+
+            <footer
+                id="footer"
+                class="greencheck-footer oe_structure oe_structure_solo"
+                t-ignore="true"
+                t-if="not no_footer">
+
+                <div class="container">
+
+                    <div class="row align-items-start">
+
+                        <!-- IDENTITE -->
+                        <div class="col-lg-5 mb-4 mb-lg-0">
+
+                            <a
+                                href="/"
+                                class="greencheck-footer-brand">
+
+                                🌱 GreenCheck
+
+                            </a>
+
+                            <p class="greencheck-footer-description">
+                                Le diagnostic intelligent pour mieux comprendre
+                                et prendre soin de vos plantes.
+                            </p>
+
+                        </div>
+
+
+                        <!-- NAVIGATION -->
+                        <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0">
+
+                            <h5>
+                                Navigation
+                            </h5>
+
+                            <ul class="list-unstyled">
+
+                                <li>
+                                    <a href="/">
+                                        Accueil
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/diagnostic-ia">
+                                        Diagnostic IA
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/fonctionnement">
+                                        Fonctionnement
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/a-propos">
+                                        À propos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/contactus">
+                                        Contact
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- ACTION -->
+                        <div class="col-sm-6 col-lg-4">
+
+                            <h5>
+                                Votre plante mérite le bon diagnostic
+                            </h5>
+
+                            <p>
+                                Importez une photo et découvrez notre
+                                analyse intelligente.
+                            </p>
+
+                            <a
+                                href="/diagnostic-ia"
+                                class="btn btn-success greencheck-footer-button">
+
+                                Commencer un diagnostic
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COPYRIGHT -->
+
+                    <div class="greencheck-footer-bottom">
+
+                        <p>
+                            © 2026 GreenCheck — Diagnostic intelligent des plantes
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </footer>
+
+        </xpath>
+
+    </template>
+
+</odoo>
