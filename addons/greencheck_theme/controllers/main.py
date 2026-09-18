@@ -6,7 +6,7 @@ import base64
 class GreenCheckWebsite(http.Controller):
 
     @http.route(
-        "/diagnostic",
+        "/diagnostic-ia",
         type="http",
         auth="public",
         website=True
