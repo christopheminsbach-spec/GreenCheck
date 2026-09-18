@@ -75,4 +75,17 @@
 
     </template>
 
+    <!-- Suppression du header mobile standard Odoo -->
+    <template
+        id="greencheck_remove_mobile_header"
+        inherit_id="website.layout"
+        name="GreenCheck Remove Default Mobile Header">
+
+        <xpath
+            expr="//header[@id='top']/t[@t-call='website.template_header_mobile']"
+            position="replace"/>
+
+    </template>
+
 </odoo>
+
