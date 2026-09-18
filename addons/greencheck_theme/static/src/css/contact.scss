@@ -1,0 +1,82 @@
+.greencheck-contact {
+    padding: 80px 0;
+    background: #f8faf8;
+}
+
+/* En-tête */
+
+.greencheck-contact-header {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.greencheck-contact-header h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.greencheck-contact-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #5f6b63;
+}
+
+/* Contenu */
+
+.greencheck-contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 45px 40px;
+    background: #ffffff;
+    border: 1px solid #e5ebe6;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.greencheck-contact-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.greencheck-contact-content p {
+    margin-bottom: 20px;
+    color: #66736a;
+    line-height: 1.7;
+}
+
+.greencheck-contact-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 767.98px) {
+
+    .greencheck-contact {
+        padding: 50px 0;
+    }
+
+    .greencheck-contact-header {
+        margin-bottom: 40px;
+    }
+
+    .greencheck-contact-header h1 {
+        font-size: 2rem;
+    }
+
+    .greencheck-contact-header p {
+        font-size: 1rem;
+    }
+
+    .greencheck-contact-content {
+        padding: 35px 20px;
+    }
+
+    .greencheck-contact-content h2 {
+        font-size: 1.5rem;
+    }
+}

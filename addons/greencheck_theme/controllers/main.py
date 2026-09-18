@@ -42,6 +42,18 @@ class GreenCheckWebsite(http.Controller):
         )
 
     @http.route(
+    "/contact",
+    type="http",
+    auth="public",
+    website=True
+    )
+    def contact(self):
+
+        return request.render(
+            "greencheck_theme.greencheck_contact"
+        )
+
+    @http.route(
         "/diagnostic/upload",
         type="http",
         auth="public",

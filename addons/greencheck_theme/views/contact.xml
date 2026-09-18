@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="greencheck_contact"
+              name="GreenCheck Contact">
+
+        <t t-call="website.layout">
+
+            <div id="wrap">
+
+                <section class="greencheck-contact">
+
+                    <div class="container">
+
+                        <div class="greencheck-contact-header text-center">
+
+                            <h1>
+                                Contactez GreenCheck
+                            </h1>
+
+                            <p>
+                                Une question sur GreenCheck ou sur le
+                                diagnostic intelligent de vos plantes ?
+                            </p>
+
+                        </div>
+
+
+                        <div class="greencheck-contact-content">
+
+                            <h2>
+                                Nous contacter
+                            </h2>
+
+                            <p>
+                                Vous pouvez nous contacter pour obtenir
+                                davantage d'informations sur GreenCheck,
+                                son fonctionnement ou son utilisation.
+                            </p>
+
+                            <p>
+                                <strong>Email :</strong>
+                                contact@greencheck.fr
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

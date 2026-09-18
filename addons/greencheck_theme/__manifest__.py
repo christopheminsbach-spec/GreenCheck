@@ -22,6 +22,7 @@
         "views/footer.xml",
         "views/fonctionnement.xml",
         "views/a_propos.xml",
+        "views/contact.xml",
     ],
 
     "assets": {
@@ -31,6 +32,7 @@
             "greencheck_theme/static/src/css/footer.scss",
             "greencheck_theme/static/src/css/fonctionnement.scss",
             "greencheck_theme/static/src/css/a-propos.scss",
+            "greencheck_theme/static/src/css/contact.scss",
         ],
     },
 
