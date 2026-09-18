@@ -123,6 +123,14 @@
 
         </xpath>
 
+
+        <!-- SUPPRESSION DU COPYRIGHT NATIF ODOO -->
+
+        <xpath
+            expr="//div[contains(@class, 'o_footer_copyright')]"
+            position="replace"/>
+
     </template>
 
 </odoo>
+
