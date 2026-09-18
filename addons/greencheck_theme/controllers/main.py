@@ -30,6 +30,18 @@ class GreenCheckWebsite(http.Controller):
         )
 
     @http.route(
+        "/a-propos",
+        type="http",
+        auth="public",
+        website=True
+    )
+    def a_propos(self):
+
+        return request.render(
+            "greencheck_theme.greencheck_a_propos"
+        )
+
+    @http.route(
         "/diagnostic/upload",
         type="http",
         auth="public",

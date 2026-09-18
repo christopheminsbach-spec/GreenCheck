@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="greencheck_a_propos"
+              name="GreenCheck À propos">
+
+        <t t-call="website.layout">
+
+            <div id="wrap">
+
+                <section class="greencheck-about">
+
+                    <div class="container">
+
+                        <div class="greencheck-about-header text-center">
+
+                            <h1>
+                                À propos de GreenCheck
+                            </h1>
+
+                            <p>
+                                Une approche intelligente
+                                du diagnostic des plantes.
+                            </p>
+
+                        </div>
+
+
+                        <div class="greencheck-about-content">
+
+                            <h2>
+                                Notre objectif
+                            </h2>
+
+                            <p>
+                                GreenCheck a pour objectif de faciliter
+                                l'identification et la compréhension
+                                de l'état des plantes grâce à
+                                l'intelligence artificielle.
+                            </p>
+
+
+                            <h2>
+                                Une solution basée sur l'IA
+                            </h2>
+
+                            <p>
+                                GreenCheck associe l'intelligence artificielle,
+                                la vision par ordinateur et l'analyse
+                                des données pour proposer une première
+                                aide au diagnostic des plantes.
+                            </p>
+
+
+                            <h2>
+                                Une démarche simple
+                            </h2>
+
+                            <p>
+                                L'utilisateur fournit une photo de sa plante
+                                ainsi que des informations complémentaires.
+                                GreenCheck analyse ces éléments afin de
+                                présenter un résultat compréhensible
+                                et des recommandations adaptées.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

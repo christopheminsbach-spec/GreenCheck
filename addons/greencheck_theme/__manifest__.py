@@ -21,6 +21,7 @@
         "views/diagnostic.xml",
         "views/footer.xml",
         "views/fonctionnement.xml",
+        "views/a_propos.xml",
     ],
 
     "assets": {
