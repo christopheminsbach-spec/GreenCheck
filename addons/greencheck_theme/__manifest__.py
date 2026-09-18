@@ -30,6 +30,7 @@
             "greencheck_theme/static/src/css/diagnostic.scss",
             "greencheck_theme/static/src/css/footer.scss",
             "greencheck_theme/static/src/css/fonctionnement.scss",
+            "greencheck_theme/static/src/css/a-propos.scss",
         ],
     },
 
