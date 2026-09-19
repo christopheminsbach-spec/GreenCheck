@@ -1,72 +1,112 @@
 <odoo>
 
+    <!-- =========================================================
+         GreenCheck — Header principal
+         ========================================================= -->
+
     <template
         id="greencheck_header"
-        inherit_id="website.template_header_default">
+        inherit_id="website.template_header_default"
+        name="GreenCheck Header">
 
-        <xpath expr="//div[@id='o_main_nav']"
-               position="replace">
+        <xpath expr="//div[@id='o_main_nav']" position="replace">
 
             <div id="o_main_nav"
-                 class="container greencheck-header">
+                 class="greencheck-header">
 
                 <!-- Logo -->
                 <a href="/"
-                   class="navbar-brand">
-                    <span>
-                        🌱 GreenCheck
+                   class="greencheck-logo"
+                   aria-label="GreenCheck - Accueil">
+
+                    <span class="greencheck-logo-icon">
+                        🌱
                     </span>
+
+                    <span class="greencheck-logo-text">
+                        GreenCheck
+                    </span>
+
                 </a>
 
-                <!-- Menu principal -->
-                <ul class="nav navbar-nav">
 
-                    <!-- Accueil -->
-                    <li class="nav-item">
-                        <a href="/"
-                           class="nav-link">
-                            Accueil
-                        </a>
-                    </li>
+                <!-- Bouton hamburger mobile -->
+                <button type="button"
+                        class="greencheck-menu-toggle"
+                        aria-label="Ouvrir le menu"
+                        aria-expanded="false"
+                        aria-controls="greencheck-main-menu">
 
-                    <!-- Diagnostic IA -->
-                    <li class="nav-item">
-                        <a href="/diagnostic-ia"
-                           class="nav-link">
-                            Diagnostic IA
-                        </a>
-                    </li>
+                    <span class="greencheck-menu-icon"
+                          aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
 
-                    <!-- Fonctionnement -->
-                    <li class="nav-item">
-                        <a href="/fonctionnement"
-                           class="nav-link">
-                            Fonctionnement
-                        </a>
-                    </li>
+                </button>
 
-                    <!-- À propos -->
-                    <li class="nav-item">
-                        <a href="/a-propos"
-                           class="nav-link">
-                            À propos
-                        </a>
-                    </li>
 
-                    <!-- Contact -->
-                    <li class="nav-item">
-                        <a href="/contact"
-                           class="nav-link">
-                            Contact
-                        </a>
-                    </li>
+                <!-- Navigation principale -->
+                <nav class="greencheck-navigation"
+                     aria-label="Navigation principale">
 
-                </ul>
+                    <ul id="greencheck-main-menu"
+                        class="greencheck-menu">
 
-                <!-- Bouton CTA -->
+                        <li class="greencheck-menu-item">
+                            <a href="/"
+                               class="greencheck-nav-link">
+                                Accueil
+                            </a>
+                        </li>
+
+                        <li class="greencheck-menu-item">
+                            <a href="/diagnostic-ia"
+                               class="greencheck-nav-link">
+                                Diagnostic IA
+                            </a>
+                        </li>
+
+                        <li class="greencheck-menu-item">
+                            <a href="/fonctionnement"
+                               class="greencheck-nav-link">
+                                Fonctionnement
+                            </a>
+                        </li>
+
+                        <li class="greencheck-menu-item">
+                            <a href="/a-propos"
+                               class="greencheck-nav-link">
+                                À propos
+                            </a>
+                        </li>
+
+                        <li class="greencheck-menu-item">
+                            <a href="/contact"
+                               class="greencheck-nav-link">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+
+                <!-- CTA -->
                 <a href="/diagnostic-ia"
-                   class="btn btn-success">
-                    Commencer un diagnostic
+                   class="greencheck-header-cta">
+
+                    <span>
+                        Commencer un diagnostic
+                    </span>
+
+                    <span class="greencheck-cta-arrow"
+                          aria-hidden="true">
+                        →
+                    </span>
+
                 </a>
 
             </div>
@@ -75,7 +115,11 @@
 
     </template>
 
-    <!-- Suppression du header mobile standard Odoo -->
+
+    <!-- =========================================================
+         Suppression du header mobile standard Odoo
+         ========================================================= -->
+
     <template
         id="greencheck_remove_mobile_header"
         inherit_id="website.layout"
@@ -88,4 +132,3 @@
     </template>
 
 </odoo>
-

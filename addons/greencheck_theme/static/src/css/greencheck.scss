@@ -1,144 +1,473 @@
-/* ===================================
+/* =========================================================
    GreenCheck Theme
-   Header professionnel
-=================================== */
+   Header responsive
+   ========================================================= */
+
+
+/* =========================================================
+   Variables
+   ========================================================= */
 
 :root {
     --greencheck-primary: #4caf50;
-    --greencheck-dark: #2e7d32;
-    --greencheck-text: #333333;
+    --greencheck-primary-dark: #2e7d32;
+    --greencheck-primary-light: #e8f5e9;
+
+    --greencheck-text: #26332a;
+    --greencheck-text-secondary: #66736a;
+
+    --greencheck-white: #ffffff;
+    --greencheck-border: #e2eae3;
+
+    --greencheck-header-height: 76px;
 }
 
-/* ===================================
+
+/* =========================================================
+   Reset local du header
+   ========================================================= */
+
+.greencheck-header,
+.greencheck-header * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
    Header
-=================================== */
+   ========================================================= */
 
 .greencheck-header {
+    position: relative;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     width: 100%;
-    min-height: 72px;
+    min-height: var(--greencheck-header-height);
 
-    padding: 0 24px;
+    padding: 0 32px;
 
-    background: #ffffff;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    background: var(--greencheck-white);
+
+    border-bottom: 1px solid var(--greencheck-border);
+
+    box-shadow:
+        0 4px 20px rgba(38, 51, 42, 0.06);
+
+    z-index: 1000;
 }
 
-/* ===================================
+
+/* =========================================================
    Logo
-=================================== */
+   ========================================================= */
 
-.greencheck-header .navbar-brand {
-    display: flex;
+.greencheck-logo {
+    display: inline-flex;
     align-items: center;
 
-    margin-right: 32px;
+    flex-shrink: 0;
 
-    font-size: 1.4rem;
-    font-weight: 700;
-
-    color: var(--greencheck-dark);
-
-    text-decoration: none;
-}
-
-/* ===================================
-   Menu
-=================================== */
-
-.greencheck-header .navbar-nav {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
+    gap: 9px;
 
     margin: 0;
-}
 
-/* Liens */
+    color: var(--greencheck-primary-dark);
 
-.greencheck-header .nav-link {
-    padding: 10px 12px;
+    font-size: 1.35rem;
+    font-weight: 700;
 
-    font-weight: 500;
-    color: var(--greencheck-text);
+    line-height: 1;
 
     text-decoration: none;
 
     transition:
-        color 0.3s ease,
-        background-color 0.3s ease;
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
-/* Hover */
-
-.greencheck-header .nav-link:hover {
+.greencheck-logo:hover {
     color: var(--greencheck-primary);
-}
-
-/* ===================================
-   Bouton CTA
-=================================== */
-
-.greencheck-header .btn-success {
-    margin-left: 24px;
-
-    padding: 10px 20px;
-
-    border: none;
-    border-radius: 8px;
-
-    background-color: var(--greencheck-primary);
-    color: #ffffff;
-
-    font-weight: 600;
 
     text-decoration: none;
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
-}
-
-/* Hover CTA */
-
-.greencheck-header .btn-success:hover {
-    background-color: var(--greencheck-dark);
-    color: #ffffff;
 
     transform: translateY(-1px);
 }
 
-/* ===================================
-   Responsive mobile
-=================================== */
+.greencheck-logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.5rem;
+
+    line-height: 1;
+}
+
+.greencheck-logo-text {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+
+.greencheck-navigation {
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+}
+
+.greencheck-menu {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.greencheck-menu-item {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   Liens navigation
+   ========================================================= */
+
+.greencheck-nav-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 44px;
+
+    padding: 10px 13px;
+
+    color: var(--greencheck-text);
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.greencheck-nav-link:hover,
+.greencheck-nav-link:focus {
+    color: var(--greencheck-primary-dark);
+
+    background: var(--greencheck-primary-light);
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   CTA Header
+   ========================================================= */
+
+.greencheck-header-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    gap: 9px;
+
+    margin-left: 20px;
+
+    padding: 11px 18px;
+
+    color: var(--greencheck-white);
+
+    background: var(--greencheck-primary);
+
+    border: 1px solid var(--greencheck-primary);
+
+    border-radius: 9px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 5px 14px rgba(76, 175, 80, 0.18);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.greencheck-header-cta:hover,
+.greencheck-header-cta:focus {
+    color: var(--greencheck-white);
+
+    background: var(--greencheck-primary-dark);
+
+    border-color: var(--greencheck-primary-dark);
+
+    text-decoration: none;
+
+    box-shadow:
+        0 7px 18px rgba(46, 125, 50, 0.22);
+
+    transform: translateY(-1px);
+}
+
+.greencheck-cta-arrow {
+    font-size: 1rem;
+
+    transition: transform 0.25s ease;
+}
+
+.greencheck-header-cta:hover .greencheck-cta-arrow {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   Bouton hamburger
+   ========================================================= */
+
+.greencheck-menu-toggle {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    margin-left: auto;
+    padding: 0;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.greencheck-menu-toggle:hover,
+.greencheck-menu-toggle:focus {
+    background: var(--greencheck-primary-light);
+
+    border-color: var(--greencheck-border);
+}
+
+.greencheck-menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 22px;
+    height: 22px;
+}
+
+.greencheck-menu-icon span {
+    display: block;
+
+    width: 22px;
+    height: 2px;
+
+    background: var(--greencheck-primary-dark);
+
+    border-radius: 2px;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   Hamburger → X
+   ========================================================= */
+
+.greencheck-menu-toggle.is-open
+.greencheck-menu-icon span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.greencheck-menu-toggle.is-open
+.greencheck-menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.greencheck-menu-toggle.is-open
+.greencheck-menu-icon span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
 
 @media (max-width: 991px) {
 
     .greencheck-header {
-        flex-wrap: wrap;
+        min-height: 68px;
 
-        padding: 16px;
+        padding: 0 20px;
     }
 
-    .greencheck-header .navbar-brand {
-        margin-right: 0;
+
+    /* -----------------------------------------
+       Logo
+       ----------------------------------------- */
+
+    .greencheck-logo {
+        font-size: 1.2rem;
     }
 
-    .greencheck-header .navbar-nav {
+    .greencheck-logo-icon {
+        font-size: 1.35rem;
+    }
+
+
+    /* -----------------------------------------
+       Hamburger
+       ----------------------------------------- */
+
+    .greencheck-menu-toggle {
+        display: inline-flex;
+    }
+
+
+    /* -----------------------------------------
+       Navigation mobile
+       ----------------------------------------- */
+
+    .greencheck-navigation {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: none;
+
         width: 100%;
 
-        justify-content: center;
+        padding: 12px 20px 20px;
 
-        margin-top: 12px;
+        background: var(--greencheck-white);
 
-        flex-wrap: wrap;
+        border-bottom: 1px solid var(--greencheck-border);
+
+        box-shadow:
+            0 10px 25px rgba(38, 51, 42, 0.08);
     }
 
-    .greencheck-header .btn-success {
-        margin: 12px auto 0;
+    .greencheck-navigation.is-open {
+        display: block;
+    }
+
+    .greencheck-menu {
+        display: flex;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        width: 100%;
+
+        gap: 4px;
+    }
+
+    .greencheck-menu-item {
+        width: 100%;
+    }
+
+    .greencheck-nav-link {
+        display: flex;
+
+        width: 100%;
+
+        min-height: 46px;
+
+        padding: 12px 14px;
+
+        border-radius: 8px;
+    }
+
+
+    /* -----------------------------------------
+       CTA mobile
+       ----------------------------------------- */
+
+    .greencheck-header-cta {
+        display: none;
+    }
+
+    .greencheck-navigation.is-open
+    + .greencheck-header-cta {
+        display: inline-flex;
+
+        position: absolute;
+
+        top: calc(100% + 245px);
+        left: 20px;
+        right: 20px;
+
+        margin: 0;
+
+        width: auto;
+    }
+}
+
+
+/* =========================================================
+   Petit écran
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .greencheck-header {
+        padding: 0 16px;
+    }
+
+    .greencheck-navigation {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .greencheck-logo-text {
+        font-size: 1.1rem;
+    }
+
+    .greencheck-header-cta {
+        left: 16px;
+        right: 16px;
     }
 }

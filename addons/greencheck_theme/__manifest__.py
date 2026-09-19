@@ -34,6 +34,7 @@
             "greencheck_theme/static/src/css/a-propos.scss",
             "greencheck_theme/static/src/css/contact.scss",
             "greencheck_theme/static/src/css/homepage.scss",
+            "greencheck_theme/static/src/js/main.js",
         ],
     },
 
