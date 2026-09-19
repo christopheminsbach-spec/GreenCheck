@@ -10,6 +10,10 @@
 
             <div id="wrap">
 
+                <!-- =====================================================
+                     HERO
+                     ===================================================== -->
+
                 <section class="greencheck-hero">
 
                     <div class="container text-center">
@@ -23,14 +27,14 @@
                             des plantes par IA
                         </h2>
 
-                        <p>
+                        <p class="lead">
                             Analysez l'état de vos plantes
                             grâce à l'intelligence artificielle.
                         </p>
 
-                        <a href="/contact"
-                           class="btn btn-primary">
-                            Découvrir notre solution
+                        <a href="/diagnostic-ia"
+                           class="greencheck-btn greencheck-btn-primary">
+                            Lancer un diagnostic
                         </a>
 
                     </div>
@@ -38,20 +42,122 @@
                 </section>
 
 
+                <!-- =====================================================
+                     INTRODUCTION
+                     ===================================================== -->
+
                 <section class="greencheck-intro">
 
                     <div class="container">
 
+                        <div class="row justify-content-center">
+
+                            <div class="col-lg-8 text-center">
+
+                                <h2>
+                                    Une nouvelle approche
+                                    du soin des plantes
+                                </h2>
+
+                                <p class="lead">
+                                    GreenCheck combine intelligence artificielle,
+                                    vision par ordinateur et expertise végétale
+                                    pour vous aider à mieux comprendre
+                                    l'état de vos plantes.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================================
+                     SOLUTION
+                     ===================================================== -->
+
+                <section class="greencheck-solution">
+
+                    <div class="container">
+
+                        <div class="row text-center">
+
+                            <div class="col-md-4 mb-4">
+
+                                <h3>
+                                    🔍 Analyse par IA
+                                </h3>
+
+                                <p>
+                                    Une photo de votre plante permet
+                                    d'obtenir une première analyse
+                                    automatisée grâce à l'intelligence
+                                    artificielle.
+                                </p>
+
+                            </div>
+
+
+                            <div class="col-md-4 mb-4">
+
+                                <h3>
+                                    🌿 Diagnostic contextualisé
+                                </h3>
+
+                                <p>
+                                    Les informations fournies sur votre plante
+                                    complètent l'analyse pour mieux comprendre
+                                    la situation.
+                                </p>
+
+                            </div>
+
+
+                            <div class="col-md-4 mb-4">
+
+                                <h3>
+                                    💡 Conseils adaptés
+                                </h3>
+
+                                <p>
+                                    GreenCheck vous accompagne avec des
+                                    informations et des recommandations
+                                    adaptées à votre diagnostic.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================================
+                     CTA
+                     ===================================================== -->
+
+                <section class="greencheck-cta">
+
+                    <div class="container text-center">
+
                         <h2>
-                            Une nouvelle approche
-                            du soin des plantes
+                            Votre plante mérite un diagnostic intelligent
                         </h2>
 
-                        <p>
-                            GreenCheck combine IA,
-                            vision par ordinateur
-                            et expertise végétale.
+                        <p class="lead">
+                            Prenez une photo et commencez votre analyse
+                            avec GreenCheck.
                         </p>
+
+                        <a href="/diagnostic-ia"
+                           class="greencheck-btn greencheck-btn-primary">
+                            Commencer le diagnostic
+                        </a>
 
                     </div>
 
@@ -66,3 +172,4 @@
 
 
 </odoo>
+
