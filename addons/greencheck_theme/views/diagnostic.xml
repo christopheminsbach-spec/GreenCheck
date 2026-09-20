@@ -71,7 +71,7 @@
 
                                         <label
                                             for="plant-image"
-                                            class="btn btn-primary">
+                                            class="greencheck-btn greencheck-btn-primary">
 
                                             Choisir une image
 
@@ -131,7 +131,7 @@
                                         <button
                                             type="button"
                                             id="start-analysis"
-                                            class="btn btn-success">
+                                            class="greencheck-btn greencheck-btn-primary">
 
                                             🔎 Lancer l'analyse
 
@@ -412,8 +412,7 @@
                         // =================================================
 
                         fileName.textContent =
-                            "Image sélectionnée : "
-                            + file.name;
+                            "Image sélectionnée";
 
 
                         const imageUrl =

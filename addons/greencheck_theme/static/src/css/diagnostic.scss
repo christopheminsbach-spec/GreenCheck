@@ -9,10 +9,11 @@
    ========================================================= */
 
 #analysis-result {
-    padding: 30px;
+    padding: 35px;
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2eae3;
+    border-radius: 22px;
+    box-shadow: 0 12px 32px rgba(46, 125, 50, 0.08);
 }
 
 
@@ -32,6 +33,7 @@
 
 #analysis-result h4 {
     color: #333333;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
@@ -51,11 +53,12 @@
 
 .gc-result-block {
     margin-bottom: 24px;
-    padding: 20px;
+    padding: 24px;
     background: #f8faf8;
-    border-radius: 12px;
-    border-left: 5px solid #4caf50;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2eae3;
+    border-left: 4px solid #4caf50;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(46, 125, 50, 0.06);
 }
 
 
@@ -87,7 +90,7 @@
    ========================================================= */
 
 #analysis-result #ai-result {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     line-height: 1.7;
 }
 
@@ -98,10 +101,15 @@
 
 #analysis-result #ai-confidence {
     display: inline-block;
+    margin-top: 4px;
+    padding: 8px 18px;
+    color: #2e7d32;
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 20px;
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.2;
-    color: #2e7d32;
 }
 
 
@@ -110,8 +118,10 @@
    ========================================================= */
 
 #analysis-result #ai-recommendations {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    margin: 0;
+    color: #66736a;
+    font-size: 0.95rem;
+    line-height: 1.75;
     white-space: pre-line;
 }
 
@@ -121,8 +131,12 @@
    ========================================================= */
 
 .gc-analysis-loading {
-    padding: 20px;
+    margin-top: 25px;
+    padding: 30px 20px;
     text-align: center;
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 16px;
 }
 
 .gc-loading-spinner {
@@ -174,22 +188,63 @@
 }
 
 .greencheck-diagnostic .card {
-    border: 1px solid #e5ebe6;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2eae3;
+    border-radius: 22px;
+    box-shadow: 0 12px 32px rgba(46, 125, 50, 0.08);
+    background: #ffffff;
 }
 
 .greencheck-diagnostic .card-body {
-    padding: 45px 40px;
+    padding: 55px 50px;
 }
 
 .greencheck-diagnostic h2 {
     margin-bottom: 20px;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 700;
+    color: #2e7d32 !important;
+    letter-spacing: -0.3px;
 }
 
 .greencheck-diagnostic .text-muted {
     color: #66736a !important;
 }
 
+
+.greencheck-diagnostic #selected-file {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    color: #2e7d32 !important;
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .greencheck-diagnostic #selected-file {
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
+
+.greencheck-diagnostic #image-preview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(46, 125, 50, 0.10);
+}
+
+@media (max-width: 767px) {
+    #analysis-result {
+        padding: 20px 8px;
+    }
+}
+
+#analysis-result h4:has(+ p#ai-recommendations) {
+    font-size: 1rem;
+}
