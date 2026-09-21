@@ -85,7 +85,7 @@
 
                         <div class="row text-center">
 
-                            <div class="col-md-4 mb-4">
+                            <div class="col-md-4">
 
                                 <h3>
                                     🔍 Analyse par IA
@@ -101,7 +101,7 @@
                             </div>
 
 
-                            <div class="col-md-4 mb-4">
+                            <div class="col-md-4">
 
                                 <h3>
                                     🌿 Diagnostic contextualisé
@@ -116,7 +116,7 @@
                             </div>
 
 
-                            <div class="col-md-4 mb-4">
+                            <div class="col-md-4">
 
                                 <h3>
                                     💡 Conseils adaptés
