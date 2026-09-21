@@ -86,23 +86,12 @@
 .greencheck-solution .col-md-4 {
     display: flex;
     align-items: flex-start;
+    min-height: 230px;
+    padding: 38px 28px;
 }
 
 .greencheck-solution .col-md-4 > * {
     width: 100%;
-}
-
-.greencheck-solution .col-md-4 {
-    min-height: 230px;
-    padding: 38px 28px;
-    background: #ffffff;
-    border: 1px solid #e2eae3;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(46, 125, 50, 0.09);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
 }
 
 .greencheck-solution .col-md-4:hover {
