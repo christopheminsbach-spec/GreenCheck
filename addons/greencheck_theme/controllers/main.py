@@ -66,6 +66,28 @@ class GreenCheckWebsite(http.Controller):
         )
 
     @http.route(
+        "/mon-espace",
+        type="http",
+        auth="user",
+        website=True
+    )
+    def mon_espace(self):
+
+        diagnostics = request.env["plant.diagnostic"].search(
+            [
+                ("user_id", "=", request.env.user.id)
+            ],
+            order="date_diagnostic desc"
+        )
+
+        return request.render(
+            "greencheck_theme.greencheck_mon_espace",
+            {
+                "diagnostics": diagnostics,
+            }
+        )
+
+    @http.route(
         "/diagnostic/upload",
         type="http",
         auth="public",

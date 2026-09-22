@@ -1,0 +1,149 @@
+<odoo>
+
+    <template
+        id="greencheck_mon_espace"
+        name="GreenCheck - Mon espace"
+    >
+
+        <t t-call="website.layout">
+
+            <div id="wrap" class="oe_structure">
+
+                <section class="greencheck-account-page">
+
+                    <div class="container">
+
+                        <div class="greencheck-account-header">
+
+                            <span class="greencheck-account-eyebrow">
+                                Mon espace
+                            </span>
+
+                            <h1>
+                                Bienvenue dans votre espace GreenCheck
+                            </h1>
+
+                            <p>
+                                Retrouvez ici vos diagnostics de plantes
+                                et leur historique.
+                            </p>
+
+                        </div>
+
+                        <div t-if="diagnostics">
+
+                            <div class="greencheck-account-header">
+
+                                <h2>
+                                    Votre historique de diagnostics
+                                </h2>
+
+                            </div>
+
+                            <div
+                                t-foreach="diagnostics"
+                                t-as="diagnostic"
+                                class="greencheck-account-diagnostic"
+                            >
+
+                                <div class="greencheck-account-diagnostic-header">
+
+                                    <h3>
+                                        <t t-esc="diagnostic.name"/>
+                                    </h3>
+
+                                    <span>
+                                        <t t-esc="diagnostic.date_diagnostic"/>
+                                    </span>
+
+                                </div>
+
+                                <div class="greencheck-account-diagnostic-state">
+
+                                    <strong>
+                                        État :
+                                    </strong>
+
+                                    <t t-esc="dict(
+                                        diagnostic._fields['state'].selection
+                                    ).get(diagnostic.state)"/>
+
+                                </div>
+
+                                <div
+                                    t-if="diagnostic.ai_result"
+                                    class="greencheck-account-diagnostic-result"
+                                >
+
+                                    <strong>
+                                        Résultat :
+                                    </strong>
+
+                                    <t t-esc="diagnostic.ai_result"/>
+
+                                </div>
+
+                                <div
+                                    t-if="diagnostic.ai_confidence"
+                                    class="greencheck-account-diagnostic-confidence"
+                                >
+
+                                    <strong>
+                                        Confiance :
+                                    </strong>
+
+                                    <t t-esc="diagnostic.ai_confidence * 100"/>
+                                    %
+
+                                </div>
+
+                            </div>
+
+                            <div class="greencheck-account-actions">
+
+                                <a
+                                    href="/diagnostic-ia"
+                                    class="greencheck-btn greencheck-btn-primary"
+                                >
+                                    Nouveau diagnostic
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div t-else="" class="greencheck-account-empty">
+
+                            <div class="greencheck-account-empty-icon">
+                                🌱
+                            </div>
+
+                            <h2>
+                                Votre historique de diagnostics
+                            </h2>
+
+                            <p>
+                                Vos diagnostics réalisés avec GreenCheck
+                                apparaîtront ici.
+                            </p>
+
+                            <a
+                                href="/diagnostic-ia"
+                                class="greencheck-btn greencheck-btn-primary"
+                            >
+                                Nouveau diagnostic
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>
