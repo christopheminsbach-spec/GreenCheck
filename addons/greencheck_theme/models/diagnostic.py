@@ -16,6 +16,12 @@ class PlantDiagnostic(models.Model):
         default=fields.Datetime.now
     )
 
+    user_id = fields.Many2one(
+        "res.users",
+        string="Utilisateur",
+        default=lambda self: self.env.user
+    )
+
     state = fields.Selection(
         [
             ("draft", "Nouveau"),
