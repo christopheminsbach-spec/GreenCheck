@@ -81,10 +81,27 @@
     font-weight: 600;
 }
 
-.greencheck-account-diagnostic-result,
+.greencheck-account-diagnostic-result {
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: #F7FAF7;
+    border-left: 4px solid #4CAF50;
+    border-radius: 10px;
+    color: #26332A;
+    line-height: 1.6;
+}
+
+.greencheck-account-diagnostic-result strong {
+    color: #2E7D32;
+}
+
 .greencheck-account-diagnostic-confidence {
     margin-top: 16px;
     color: #26332A;
+}
+
+.greencheck-account-diagnostic-confidence strong {
+    color: #2E7D32;
 }
 
 .greencheck-account-diagnostic-state strong,
