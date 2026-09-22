@@ -1,0 +1,318 @@
+/* ============================================================
+   GreenCheck — Page de connexion
+   ============================================================ */
+
+
+/* ============================================================
+   Conteneur principal
+   ============================================================ */
+
+.greencheck-login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background: #F7FAF7;
+}
+
+
+/* ============================================================
+   Carte de connexion
+   ============================================================ */
+
+.greencheck-login-card {
+    width: 100%;
+    max-width: 460px !important;
+    margin: 0 auto;
+    border: 1px solid #E2EAE3 !important;
+    border-radius: 18px !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 12px 35px rgba(38, 51, 42, 0.08);
+}
+
+
+/* ============================================================
+   Identité GreenCheck
+   ============================================================ */
+
+.greencheck-login-brand {
+    text-align: center;
+    padding: 1.5rem 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #E2EAE3;
+}
+
+.greencheck-login-brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 0.75rem;
+    border-radius: 18px;
+    background: #E8F5E9;
+    font-size: 2rem;
+}
+
+.greencheck-login-brand-name {
+    color: #2E7D32;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.greencheck-login-brand-tagline {
+    margin-top: 0.4rem;
+    color: #66736A;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   En-tête du formulaire
+   ============================================================ */
+
+.greencheck-login-heading {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.greencheck-login-icon {
+    display: none;
+}
+
+.greencheck-login-title {
+    margin: 0;
+    color: #26332A;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.greencheck-login-subtitle {
+    margin: 0.5rem 0 0;
+    color: #66736A;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   Formulaire
+   ============================================================ */
+
+.greencheck-login-form {
+    margin-top: 0;
+}
+
+.greencheck-login-form .form-label {
+    color: #26332A;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.greencheck-login-form .form-control {
+    min-height: 48px;
+    border: 1px solid #E2EAE3;
+    border-radius: 10px;
+    background: #F7FAF7;
+    color: #26332A;
+    box-shadow: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.greencheck-login-form .form-control:hover {
+    border-color: #B8CDBB;
+}
+
+.greencheck-login-form .form-control:focus {
+    border-color: #4CAF50;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+.greencheck-login-form .form-control::placeholder {
+    color: #66736A;
+    opacity: 0.7;
+}
+
+
+/* ============================================================
+   Affichage du mot de passe
+   ============================================================ */
+
+.greencheck-login-form .o_show_password {
+    min-width: 48px;
+    border-color: #E2EAE3;
+    background: #F7FAF7;
+    color: #66736A;
+}
+
+.greencheck-login-form .o_show_password:hover {
+    border-color: #4CAF50;
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+
+/* ============================================================
+   Bouton de connexion
+   ============================================================ */
+
+.greencheck-login-submit {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 0.5rem;
+    border: 0 !important;
+    border-radius: 10px !important;
+    background: #4CAF50 !important;
+    color: #FFFFFF !important;
+    font-size: 1rem;
+    font-weight: 600;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.greencheck-login-submit:hover {
+    background: #2E7D32 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.18);
+}
+
+.greencheck-login-submit:focus {
+    background: #2E7D32 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.18);
+}
+
+
+/* ============================================================
+   Messages Odoo
+   ============================================================ */
+
+.greencheck-login-form .alert {
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+
+/* ============================================================
+   Liens du formulaire
+   ============================================================ */
+
+.greencheck-login-form a {
+    color: #2E7D32;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.greencheck-login-form a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   Séparation OAuth / Passkey
+   ============================================================ */
+
+.greencheck-login-form .o_auth_oauth_providers {
+    margin-top: 1rem;
+}
+
+.greencheck-login-form .o_login_authenticate {
+    margin-top: 1rem;
+}
+
+
+/* ============================================================
+   Footer GreenCheck
+   ============================================================ */
+
+.greencheck-login-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #E2EAE3;
+    color: #66736A;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.greencheck-login-footer span:first-child {
+    color: #2E7D32;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   Marqueur technique
+   ============================================================ */
+
+.greencheck-login-marker {
+    display: none;
+}
+
+
+/* ============================================================
+   Responsive mobile
+   ============================================================ */
+
+@media (max-width: 576px) {
+
+    .greencheck-login-container {
+        min-height: 100vh;
+        padding: 1.25rem;
+        align-items: center;
+    }
+
+    .greencheck-login-card {
+        max-width: 100% !important;
+        border-radius: 14px !important;
+    }
+
+    .greencheck-login-brand {
+        padding-top: 1rem;
+    }
+
+    .greencheck-login-brand-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 15px;
+        font-size: 1.75rem;
+    }
+
+    .greencheck-login-brand-name {
+        font-size: 1.75rem;
+    }
+
+    .greencheck-login-title {
+        font-size: 1.55rem;
+    }
+
+    .greencheck-login-form .form-control {
+        min-height: 46px;
+    }
+
+    .greencheck-login-submit {
+        min-height: 46px;
+    }
+
+    .greencheck-login-footer {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================
+         GreenCheck — Formulaire de connexion
+         ======================================================== -->
+
+    <template
+        id="greencheck_login"
+        inherit_id="web.login"
+        name="GreenCheck Login"
+    >
+
+        <!-- Conteneur du formulaire -->
+        <xpath expr="//form[@role='form']" position="attributes">
+            <attribute name="class" add="greencheck-login-form" separator=" "/>
+        </xpath>
+
+        <!-- Titre GreenCheck -->
+        <xpath expr="//form[@role='form']/div[contains(@class, 'field-login')]" position="before">
+            <div class="greencheck-login-heading">
+                <div class="greencheck-login-icon">
+                    🌱
+                </div>
+
+                <h1 class="greencheck-login-title">
+                    Connexion
+                </h1>
+
+                <p class="greencheck-login-subtitle">
+                    Accédez à votre espace GreenCheck
+                </p>
+            </div>
+        </xpath>
+
+        <!-- Bouton de connexion -->
+        <xpath expr="//form[@role='form']//button[@type='submit'][not(@name='redirect')]" position="attributes">
+            <attribute name="class" add="greencheck-login-submit" separator=" "/>
+        </xpath>
+
+    </template>
+
+
+    <!-- ========================================================
+         GreenCheck — Layout de connexion
+         ======================================================== -->
+
+    <template
+        id="greencheck_login_layout"
+        inherit_id="web.login_layout"
+        name="GreenCheck Login Layout"
+    >
+
+        <!-- Conteneur principal -->
+        <xpath expr="//div[contains(@class, 'container')]" position="attributes">
+            <attribute name="class" add="greencheck-login-container" separator=" "/>
+        </xpath>
+
+        <!-- Carte -->
+        <xpath expr="//div[@style='max-width: 300px;']" position="attributes">
+            <attribute name="class" add="greencheck-login-card" separator=" "/>
+            <attribute name="style" remove="max-width: 300px;"/>
+        </xpath>
+
+        <!-- Remplacement de l'identité Odoo -->
+        <xpath expr="//img[contains(@t-attf-src, '/web/binary/company_logo')]/parent::div" position="replace">
+            <div class="greencheck-login-brand">
+                <div class="greencheck-login-brand-icon">
+                    🌱
+                </div>
+
+                <div class="greencheck-login-brand-name">
+                    GreenCheck
+                </div>
+
+                <div class="greencheck-login-brand-tagline">
+                    Diagnostic intelligent de vos plantes
+                </div>
+            </div>
+        </xpath>
+
+        <!-- Remplacement du footer Odoo -->
+        <xpath expr="//div[contains(@class, 'small') and contains(@class, 'mt-4')]" position="replace">
+            <div class="greencheck-login-footer">
+                <span>GreenCheck</span>
+                <span>•</span>
+                <span>Diagnostic végétal intelligent</span>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

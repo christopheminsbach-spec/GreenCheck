@@ -24,6 +24,7 @@
         "views/a_propos.xml",
         "views/contact.xml",
         "views/inscription.xml",
+        "views/login.xml",
     ],
 
     "assets": {
@@ -36,6 +37,7 @@
             "greencheck_theme/static/src/css/contact.scss",
             "greencheck_theme/static/src/css/homepage.scss",
             "greencheck_theme/static/src/css/inscription.scss",
+            "greencheck_theme/static/src/css/login.scss",
             "greencheck_theme/static/src/js/main.js",
         ],
     },
