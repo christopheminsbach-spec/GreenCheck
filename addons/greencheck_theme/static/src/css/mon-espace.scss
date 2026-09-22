@@ -1,0 +1,111 @@
+/* ============================================================
+   GREENCHECK — MON ESPACE
+   ============================================================ */
+
+.greencheck-account-page {
+    background: #F7FAF7;
+    padding: 80px 0;
+    min-height: 70vh;
+}
+
+.greencheck-account-header {
+    margin-bottom: 40px;
+}
+
+.greencheck-account-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #4CAF50;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.greencheck-account-header h1,
+.greencheck-account-header h2 {
+    color: #26332A;
+}
+
+.greencheck-account-header h1 {
+    margin-bottom: 16px;
+}
+
+.greencheck-account-header h2 {
+    margin-bottom: 0;
+}
+
+.greencheck-account-header p {
+    max-width: 700px;
+    color: #66736A;
+    line-height: 1.7;
+}
+
+.greencheck-account-diagnostic {
+    margin-bottom: 24px;
+    padding: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E2EAE3;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(38, 51, 42, 0.05);
+}
+
+.greencheck-account-diagnostic-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.greencheck-account-diagnostic-header h3 {
+    margin: 0;
+    color: #2E7D32;
+}
+
+.greencheck-account-diagnostic-header span {
+    color: #66736A;
+    font-size: 0.9rem;
+}
+
+.greencheck-account-diagnostic-state,
+.greencheck-account-diagnostic-result,
+.greencheck-account-diagnostic-confidence {
+    margin-top: 12px;
+    color: #26332A;
+}
+
+.greencheck-account-diagnostic-state strong,
+.greencheck-account-diagnostic-result strong,
+.greencheck-account-diagnostic-confidence strong {
+    color: #2E7D32;
+}
+
+.greencheck-account-actions {
+    margin-top: 32px;
+}
+
+.greencheck-account-empty {
+    padding: 48px 32px;
+    background: #FFFFFF;
+    border: 1px solid #E2EAE3;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.greencheck-account-empty-icon {
+    margin-bottom: 16px;
+    font-size: 3rem;
+}
+
+.greencheck-account-empty h2 {
+    margin-bottom: 12px;
+    color: #26332A;
+}
+
+.greencheck-account-empty p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    color: #66736A;
+    line-height: 1.7;
+}
