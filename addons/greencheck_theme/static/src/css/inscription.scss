@@ -1,0 +1,145 @@
+.greencheck-inscription-page {
+    min-height: calc(100vh - 160px);
+    background: #f7faf7;
+}
+
+.greencheck-inscription-main {
+    padding: 80px 24px;
+}
+
+.greencheck-inscription-container {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.greencheck-inscription-card {
+    background: #ffffff;
+    border: 1px solid #e2eae3;
+    border-radius: 20px;
+    padding: 44px 42px;
+    box-shadow: 0 12px 35px rgba(38, 51, 42, 0.08);
+}
+
+.greencheck-inscription-header {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.greencheck-inscription-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #e8f5e9;
+    font-size: 30px;
+}
+
+.greencheck-inscription-header h1 {
+    margin: 0 0 12px;
+    color: #26332a;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.greencheck-inscription-header p {
+    max-width: 390px;
+    margin: 0 auto;
+    color: #66736a;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.greencheck-inscription-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.greencheck-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.greencheck-form-group label {
+    color: #26332a;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.greencheck-form-input {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 15px;
+    border: 1px solid #e2eae3;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #26332a;
+    font-size: 1rem;
+    line-height: 1.4;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.greencheck-form-input::placeholder {
+    color: #8a968e;
+}
+
+.greencheck-form-input:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+.greencheck-inscription-submit {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.greencheck-inscription-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 28px;
+    color: #66736a;
+    font-size: 0.95rem;
+}
+
+.greencheck-inscription-login a {
+    color: #2e7d32;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.greencheck-inscription-login a:hover {
+    color: #4caf50;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+    .greencheck-inscription-main {
+        padding: 50px 16px;
+    }
+
+    .greencheck-inscription-card {
+        padding: 32px 24px;
+        border-radius: 16px;
+    }
+
+    .greencheck-inscription-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .greencheck-inscription-header p {
+        font-size: 0.95rem;
+    }
+
+}

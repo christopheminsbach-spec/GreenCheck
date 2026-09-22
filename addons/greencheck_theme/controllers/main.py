@@ -42,15 +42,27 @@ class GreenCheckWebsite(http.Controller):
         )
 
     @http.route(
-    "/contact",
-    type="http",
-    auth="public",
-    website=True
+        "/contact",
+        type="http",
+        auth="public",
+        website=True
     )
     def contact(self):
 
         return request.render(
             "greencheck_theme.greencheck_contact"
+        )
+
+    @http.route(
+        "/inscription",
+        type="http",
+        auth="public",
+        website=True
+    )
+    def inscription(self):
+
+        return request.render(
+            "greencheck_theme.greencheck_inscription"
         )
 
     @http.route(
