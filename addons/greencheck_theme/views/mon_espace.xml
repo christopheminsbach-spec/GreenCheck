@@ -32,7 +32,7 @@
 
                         <div t-if="diagnostics">
 
-                            <div class="greencheck-account-header">
+                            <div class="greencheck-account-header greencheck-account-history-header">
 
                                 <h2>
                                     Votre historique de diagnostics
