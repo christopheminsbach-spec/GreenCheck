@@ -68,10 +68,22 @@
     font-size: 0.9rem;
 }
 
-.greencheck-account-diagnostic-state,
+.greencheck-account-diagnostic-state {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 12px;
+    padding: 7px 14px;
+    background: #E8F5E9;
+    border: 1px solid #E2EAE3;
+    border-radius: 999px;
+    color: #2E7D32;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 .greencheck-account-diagnostic-result,
 .greencheck-account-diagnostic-confidence {
-    margin-top: 12px;
+    margin-top: 16px;
     color: #26332A;
 }
 
