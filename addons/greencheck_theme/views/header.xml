@@ -9,6 +9,10 @@
         inherit_id="website.template_header_default"
         name="GreenCheck Header">
 
+        <xpath expr="//t[@t-set='_navbar_classes']" position="attributes">
+            <attribute name="t-valuef">shadow-sm</attribute>
+        </xpath>
+
         <xpath expr="//div[@id='o_main_nav']" position="replace">
 
             <div id="o_main_nav"

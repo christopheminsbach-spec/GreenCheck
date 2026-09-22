@@ -1,6 +1,6 @@
 /** GreenCheck Theme **/
 
-document.addEventListener("DOMContentLoaded", function () {
+function initGreenCheckMenu() {
 
     const menuButton = document.querySelector(
         ".greencheck-menu-toggle"
@@ -110,4 +110,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-});
+}
+
+
+/* =========================================================
+   Initialisation compatible avec le chargement Odoo
+   ========================================================= */
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initGreenCheckMenu
+    );
+
+} else {
+
+    initGreenCheckMenu();
+
+}
