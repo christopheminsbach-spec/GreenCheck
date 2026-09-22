@@ -93,6 +93,13 @@
                             </a>
                         </li>
 
+                        <li class="greencheck-menu-item">
+                            <a href="/mon-espace"
+                               class="greencheck-nav-link">
+                                Mon espace
+                            </a>
+                        </li>
+
                     </ul>
 
                 </nav>
