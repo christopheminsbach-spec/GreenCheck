@@ -93,26 +93,34 @@
                             </a>
                         </li>
 
-                        <li class="greencheck-menu-item">
-                            <a href="/mon-espace"
-                               class="greencheck-nav-link">
-                                Mon espace
-                            </a>
-                        </li>
+                        <t t-if="request.env.user._is_public()">
 
-                        <li class="greencheck-menu-item">
-                            <a href="/web/login"
-                               class="greencheck-nav-link">
-                                Se connecter
-                            </a>
-                        </li>
+                            <li class="greencheck-menu-item">
+                                <a href="/web/login"
+                                   class="greencheck-nav-link">
+                                    Se connecter
+                                </a>
+                            </li>
 
-                        <li class="greencheck-menu-item">
-                            <a href="/inscription"
-                               class="greencheck-nav-link">
-                                Créer un compte
-                            </a>
-                        </li>
+                            <li class="greencheck-menu-item">
+                                <a href="/inscription"
+                                   class="greencheck-nav-link">
+                                    Créer un compte
+                                </a>
+                            </li>
+
+                        </t>
+
+                        <t t-else="">
+
+                            <li class="greencheck-menu-item">
+                                <a href="/mon-espace"
+                                   class="greencheck-nav-link">
+                                    Mon espace
+                                </a>
+                            </li>
+
+                        </t>
 
                     </ul>
 
