@@ -29,6 +29,13 @@
                                 et leur historique.
                             </p>
 
+                            <p class="greencheck-account-count">
+                                <strong>
+                                    <t t-esc="len(diagnostics)"/>
+                                </strong>
+                                diagnostic(s) réalisé(s)
+                            </p>
+
                         </div>
 
                         <div t-if="diagnostics">
