@@ -115,12 +115,23 @@ class GreenCheckWebsite(http.Controller):
 
         image_base64 = base64.b64encode(image_data)
 
-        # Création du diagnostic avec stockage de la photo
-        diagnostic = request.env["plant.diagnostic"].sudo().create({
+        # Préparation des données du diagnostic
+        diagnostic_values = {
             "name": "Diagnostic plante",
             "state": "draft",
             "image": image_base64,
-        })
+        }
+
+        # Association au compte connecté
+        public_user = request.env.ref("base.public_user")
+
+        if request.env.user.id != public_user.id:
+            diagnostic_values["user_id"] = request.env.user.id
+
+        # Création du diagnostic
+        diagnostic = request.env["plant.diagnostic"].sudo().create(
+            diagnostic_values
+        )
 
         state_label = dict(
             diagnostic._fields["state"].selection
