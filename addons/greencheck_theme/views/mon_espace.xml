@@ -20,7 +20,8 @@
                             </span>
 
                             <h1>
-                                Bienvenue dans votre espace GreenCheck
+                                Bienvenue,
+                                  <t t-esc="request.env.user.name"/>
                             </h1>
 
                             <p>
