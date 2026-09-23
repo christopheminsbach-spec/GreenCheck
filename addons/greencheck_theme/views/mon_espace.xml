@@ -57,7 +57,11 @@
                                 <div class="greencheck-account-diagnostic-header">
 
                                     <h3>
-                                        <t t-esc="diagnostic.name"/>
+                                        <a
+                                           t-att-href="'/mon-espace/diagnostic/%s' % diagnostic.id"
+                                        >
+                                           <t t-esc="diagnostic.name"/>
+                                        </a>
                                     </h3>
 
                                     <span>
