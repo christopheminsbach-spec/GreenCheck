@@ -107,6 +107,24 @@
     font-weight: 600;
 }
 
+.greencheck-account-diagnostic-state.greencheck-state-draft {
+    background: #F7FAF7;
+    border-color: #E2EAE3;
+    color: #66736A;
+}
+
+.greencheck-account-diagnostic-state.greencheck-state-analyzing {
+    background: #FFF8E1;
+    border-color: #F0D98C;
+    color: #8A6D1D;
+}
+
+.greencheck-account-diagnostic-state.greencheck-state-done {
+    background: #E8F5E9;
+    border-color: #B7DDB9;
+    color: #2E7D32;
+}
+
 .greencheck-account-diagnostic-result {
     margin-top: 20px;
     padding: 16px 18px;

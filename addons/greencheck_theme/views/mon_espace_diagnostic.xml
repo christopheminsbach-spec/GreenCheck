@@ -44,7 +44,9 @@
 
                             </div>
 
-                            <div class="greencheck-account-diagnostic-state">
+                            <div
+                                t-attf-class="greencheck-account-diagnostic-state greencheck-state-#{diagnostic.state}"
+                            >
 
                                 <strong>
                                     État :
@@ -54,7 +56,7 @@
                                     diagnostic._fields['state'].selection
                                 ).get(diagnostic.state)"/>
 
-                            </div>
+                                </div>
 
                             <div
                                 t-if="diagnostic.image"
