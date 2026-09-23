@@ -57,6 +57,18 @@
                             </div>
 
                             <div
+                                t-if="diagnostic.image"
+                                class="greencheck-account-diagnostic-image"
+                            >
+
+                               <img
+                                   t-att-src="'/web/image/plant.diagnostic/%s/image' % diagnostic.id"
+                                   alt="Photo de la plante"
+                            />
+
+                            </div>
+
+                            <div
                                 t-if="diagnostic.ai_result"
                                 class="greencheck-account-diagnostic-result"
                             >
