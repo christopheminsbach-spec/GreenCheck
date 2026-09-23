@@ -2,7 +2,6 @@
 
 <odoo>
 
-
 <template
     id="greencheck_diagnostic_page"
     name="GreenCheck Diagnostic IA">
@@ -61,6 +60,56 @@
                                         Sélectionnez une image de votre plante
                                         depuis votre ordinateur.
                                     </p>
+
+
+                                    <!-- ================================================= -->
+                                    <!-- TYPE DE PLANTE -->
+                                    <!-- ================================================= -->
+
+                                    <div class="mb-4 text-start">
+
+                                        <label
+                                            for="plant-type"
+                                            class="form-label">
+
+                                            🌿 Type de plante
+
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            id="plant-type"
+                                            name="plant_type"
+                                            class="form-control"
+                                            placeholder="Ex. Rosier, tomate, basilic..."
+                                            autocomplete="off"/>
+
+                                    </div>
+
+
+                                    <!-- ================================================= -->
+                                    <!-- LOCALISATION -->
+                                    <!-- ================================================= -->
+
+                                    <div class="mb-4 text-start">
+
+                                        <label
+                                            for="plant-location"
+                                            class="form-label">
+
+                                            📍 Localisation
+
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            id="plant-location"
+                                            name="location"
+                                            class="form-control"
+                                            placeholder="Ex. Metz, France..."
+                                            autocomplete="off"/>
+
+                                    </div>
 
 
                                     <!-- ================================================= -->
@@ -440,9 +489,32 @@
                         const formData =
                             new FormData();
 
+                        const plantType =
+                            document.getElementById("plant-type");
+
+                        const plantLocation =
+                            document.getElementById(
+                                "plant-location"
+                            );
+
+
                         formData.append(
                             "plant_image",
                             file
+                        );
+
+                        formData.append(
+                            "plant_type",
+                            plantType
+                                ? plantType.value.trim()
+                                : ""
+                        );
+
+                        formData.append(
+                            "location",
+                            plantLocation
+                                ? plantLocation.value.trim()
+                                : ""
                         );
 
 
@@ -808,6 +880,5 @@
     </t>
 
 </template>
-
 
 </odoo>
