@@ -100,6 +100,13 @@
                             </a>
                         </li>
 
+                        <li class="greencheck-menu-item">
+                            <a href="/web/login"
+                               class="greencheck-nav-link">
+                                Se connecter
+                            </a>
+                        </li>
+
                     </ul>
 
                 </nav>
