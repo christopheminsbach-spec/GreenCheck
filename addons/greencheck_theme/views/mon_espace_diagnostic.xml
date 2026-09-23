@@ -72,7 +72,7 @@
 
                             <div
                                 t-if="diagnostic.ai_result"
-                                class="greencheck-account-diagnostic-result"
+                                class="greencheck-account-diagnostic-result greencheck-diagnostic-result-primary"
                             >
 
                                 <strong>
