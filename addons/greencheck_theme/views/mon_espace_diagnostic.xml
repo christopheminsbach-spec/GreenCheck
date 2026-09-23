@@ -1,0 +1,131 @@
+<odoo>
+
+    <template
+        id="greencheck_mon_espace_diagnostic"
+        name="GreenCheck - Détail du diagnostic"
+    >
+
+        <t t-call="website.layout">
+
+            <div id="wrap" class="oe_structure">
+
+                <section class="greencheck-account-page">
+
+                    <div class="container">
+
+                        <div class="greencheck-account-header">
+
+                            <span class="greencheck-account-eyebrow">
+                                Mon espace
+                            </span>
+
+                            <h1>
+                                Détail du diagnostic
+                            </h1>
+
+                            <p>
+                                Retrouvez les informations de votre diagnostic
+                                GreenCheck.
+                            </p>
+
+                        </div>
+
+                        <div class="greencheck-account-diagnostic">
+
+                            <div class="greencheck-account-diagnostic-header">
+
+                                <h2>
+                                    <t t-esc="diagnostic.name"/>
+                                </h2>
+
+                                <span>
+                                    <t t-esc="diagnostic.date_diagnostic"/>
+                                </span>
+
+                            </div>
+
+                            <div class="greencheck-account-diagnostic-state">
+
+                                <strong>
+                                    État :
+                                </strong>
+
+                                <t t-esc="dict(
+                                    diagnostic._fields['state'].selection
+                                ).get(diagnostic.state)"/>
+
+                            </div>
+
+                            <div
+                                t-if="diagnostic.ai_result"
+                                class="greencheck-account-diagnostic-result"
+                            >
+
+                                <strong>
+                                    Résultat :
+                                </strong>
+
+                                <t t-esc="diagnostic.ai_result"/>
+
+                            </div>
+
+                            <div
+                                t-if="diagnostic.ai_confidence"
+                                class="greencheck-account-diagnostic-confidence"
+                            >
+
+                                <strong>
+                                    Confiance :
+                                </strong>
+
+                                <t t-esc="diagnostic.ai_confidence * 100"/>
+                                %
+
+                            </div>
+
+                            <div
+                                t-if="diagnostic.recommendations"
+                                class="greencheck-account-diagnostic-result"
+                            >
+
+                                <strong>
+                                    Recommandations :
+                                </strong>
+
+                                <p>
+                                    <t t-esc="diagnostic.recommendations"/>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="greencheck-account-actions">
+
+                            <a
+                                href="/mon-espace"
+                                class="greencheck-btn greencheck-btn-primary"
+                            >
+                                Retour à mon espace
+                            </a>
+
+                            <a
+                                href="/diagnostic-ia"
+                                class="greencheck-btn greencheck-btn-primary"
+                            >
+                                Nouveau diagnostic
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

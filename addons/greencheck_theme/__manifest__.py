@@ -25,6 +25,7 @@
         "views/contact.xml",
         "views/inscription.xml",
         "views/mon_espace.xml",
+        "views/mon_espace_diagnostic.xml",
         "views/login.xml",
     ],
 
