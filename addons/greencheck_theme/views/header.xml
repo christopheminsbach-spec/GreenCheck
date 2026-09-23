@@ -120,6 +120,13 @@
                                 </a>
                             </li>
 
+                            <li class="greencheck-menu-item">
+                                <a href="/web/session/logout"
+                                   class="greencheck-nav-link">
+                                    Se déconnecter
+                                </a>
+                            </li>
+
                         </t>
 
                     </ul>
