@@ -107,6 +107,13 @@
                             </a>
                         </li>
 
+                        <li class="greencheck-menu-item">
+                            <a href="/inscription"
+                               class="greencheck-nav-link">
+                                Créer un compte
+                            </a>
+                        </li>
+
                     </ul>
 
                 </nav>
