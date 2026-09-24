@@ -45,6 +45,32 @@
                             </div>
 
                             <div
+                                t-if="diagnostic.plant_type"
+                                class="greencheck-account-diagnostic-plant-type"
+                            >
+
+                                <strong>
+                                    🌿 Type de plante :
+                                </strong>
+
+                                <t t-esc="diagnostic.plant_type"/>
+
+                            </div>
+
+                            <div
+                                t-if="diagnostic.location"
+                                class="greencheck-account-diagnostic-location"
+                            >
+
+                                <strong>
+                                    📍 Localisation :
+                                </strong>
+
+                                <t t-esc="diagnostic.location"/>
+
+                            </div>
+
+                            <div
                                 t-attf-class="greencheck-account-diagnostic-state greencheck-state-#{diagnostic.state}"
                             >
 

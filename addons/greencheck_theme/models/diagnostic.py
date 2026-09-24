@@ -11,6 +11,15 @@ class PlantDiagnostic(models.Model):
         default="Nouveau diagnostic"
     )
 
+    plant_type = fields.Char(
+        string="Type de plante"
+    )
+
+    location = fields.Char(
+        string="Localisation"
+    )
+
+
     date_diagnostic = fields.Datetime(
         string="Date du diagnostic",
         default=fields.Datetime.now
