@@ -146,6 +146,9 @@ class GreenCheckWebsite(http.Controller):
             "name": "Diagnostic plante",
             "state": "draft",
             "image": image_base64,
+            "plant_type": post.get("plant_type", "").strip(),
+            "location": post.get("location", "").strip(),
+            "exposure": post.get("exposure", "").strip(),
         }
 
         # Association au compte connecté

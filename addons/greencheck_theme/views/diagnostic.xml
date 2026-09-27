@@ -113,6 +113,31 @@
 
 
                                     <!-- ================================================= -->
+                                    <!-- EXPOSITION -->
+                                    <!-- ================================================= -->
+
+                                    <div class="mb-4 text-start">
+
+                                        <label
+                                            for="plant-exposure"
+                                            class="form-label">
+
+                                            ☀️ Exposition
+
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            id="plant-exposure"
+                                            name="exposure"
+                                            class="form-control"
+                                            placeholder="Ex. Plein soleil, mi-ombre, ombre..."
+                                            autocomplete="off"/>
+
+                                    </div>
+
+
+                                    <!-- ================================================= -->
                                     <!-- BOUTON DE SELECTION -->
                                     <!-- ================================================= -->
 
@@ -497,6 +522,11 @@
                                 "plant-location"
                             );
 
+                        const plantExposure =
+                            document.getElementById(
+                                "plant-exposure"
+                            );
+
 
                         formData.append(
                             "plant_image",
@@ -514,6 +544,13 @@
                             "location",
                             plantLocation
                                 ? plantLocation.value.trim()
+                                : ""
+                        );
+
+                        formData.append(
+                            "exposure",
+                            plantExposure
+                                ? plantExposure.value.trim()
                                 : ""
                         );
 
