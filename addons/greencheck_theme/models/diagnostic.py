@@ -19,6 +19,10 @@ class PlantDiagnostic(models.Model):
         string="Localisation"
     )
 
+    exposure = fields.Char(
+        string="Exposition"
+    )
+
 
     date_diagnostic = fields.Datetime(
         string="Date du diagnostic",

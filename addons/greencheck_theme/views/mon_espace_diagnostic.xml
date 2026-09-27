@@ -71,6 +71,19 @@
                             </div>
 
                             <div
+                                t-if="diagnostic.exposure"
+                                class="greencheck-account-diagnostic-exposure"
+                            >
+
+                                <strong>
+                                    ☀️ Exposition :
+                                </strong>
+
+                                <t t-esc="diagnostic.exposure"/>
+
+                            </div>
+
+                            <div
                                 t-attf-class="greencheck-account-diagnostic-state greencheck-state-#{diagnostic.state}"
                             >
 
@@ -82,17 +95,17 @@
                                     diagnostic._fields['state'].selection
                                 ).get(diagnostic.state)"/>
 
-                                </div>
+                            </div>
 
                             <div
                                 t-if="diagnostic.image"
                                 class="greencheck-account-diagnostic-image"
                             >
 
-                               <img
-                                   t-att-src="'/web/image/plant.diagnostic/%s/image' % diagnostic.id"
-                                   alt="Photo de la plante"
-                            />
+                                <img
+                                    t-att-src="'/web/image/plant.diagnostic/%s/image' % diagnostic.id"
+                                    alt="Photo de la plante"
+                                />
 
                             </div>
 
