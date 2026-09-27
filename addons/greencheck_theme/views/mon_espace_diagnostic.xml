@@ -44,42 +44,50 @@
 
                             </div>
 
-                            <div
-                                t-if="diagnostic.plant_type"
-                                class="greencheck-account-diagnostic-plant-type"
-                            >
+                            <div class="greencheck-account-diagnostic-context">
 
-                                <strong>
-                                    🌿 Type de plante :
-                                </strong>
+                                <h3>
+                                    Contexte de la plante
+                                </h3>
 
-                                <t t-esc="diagnostic.plant_type"/>
+                                <div
+                                    t-if="diagnostic.plant_type"
+                                    class="greencheck-account-diagnostic-plant-type"
+                                >
 
-                            </div>
+                                    <strong>
+                                        🌿 Type de plante :
+                                    </strong>
 
-                            <div
-                                t-if="diagnostic.location"
-                                class="greencheck-account-diagnostic-location"
-                            >
+                                    <t t-esc="diagnostic.plant_type"/>
 
-                                <strong>
-                                    📍 Localisation :
-                                </strong>
+                                </div>
 
-                                <t t-esc="diagnostic.location"/>
+                                <div
+                                    t-if="diagnostic.location"
+                                    class="greencheck-account-diagnostic-location"
+                                >
 
-                            </div>
+                                    <strong>
+                                        📍 Localisation :
+                                    </strong>
 
-                            <div
-                                t-if="diagnostic.exposure"
-                                class="greencheck-account-diagnostic-exposure"
-                            >
+                                    <t t-esc="diagnostic.location"/>
 
-                                <strong>
-                                    ☀️ Exposition :
-                                </strong>
+                                </div>
 
-                                <t t-esc="diagnostic.exposure"/>
+                                <div
+                                    t-if="diagnostic.exposure"
+                                    class="greencheck-account-diagnostic-exposure"
+                                >
+
+                                    <strong>
+                                        ☀️ Exposition :
+                                    </strong>
+
+                                    <t t-esc="diagnostic.exposure"/>
+
+                                </div>
 
                             </div>
 

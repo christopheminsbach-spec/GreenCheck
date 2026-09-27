@@ -183,6 +183,7 @@ class GreenCheckWebsite(http.Controller):
     )
     def diagnostic_start(self, **post):
 
+
         diagnostic_id = post.get("diagnostic_id")
 
         if not diagnostic_id:
@@ -200,6 +201,13 @@ class GreenCheckWebsite(http.Controller):
                 "success": False,
                 "message": "Diagnostic introuvable"
             })
+
+        # Mise à jour du contexte du diagnostic
+        diagnostic.write({
+            "plant_type": post.get("plant_type", "").strip(),
+            "location": post.get("location", "").strip(),
+            "exposure": post.get("exposure", "").strip(),
+        })
 
         # Passage du diagnostic à l'état "En analyse"
         diagnostic.action_start_analysis()
