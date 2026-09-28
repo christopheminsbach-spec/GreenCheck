@@ -287,6 +287,10 @@ class GreenCheckWebsite(http.Controller):
             diagnostic_values
         )
 
+        # Mémorisation du diagnostic pour un visiteur public
+        if request.env.user.id == public_user.id:
+            request.session["greencheck_diagnostic_id"] = diagnostic.id
+
         state_label = dict(
             diagnostic._fields["state"].selection
         ).get(diagnostic.state)
@@ -333,6 +337,26 @@ class GreenCheckWebsite(http.Controller):
                 "success": False,
                 "message": "Diagnostic introuvable"
             })
+
+        # Contrôle d'accès au diagnostic
+        public_user = request.env.ref("base.public_user")
+
+        if request.env.user.id != public_user.id:
+            if diagnostic.user_id.id != request.env.user.id:
+                return request.make_json_response({
+                    "success": False,
+                    "message": "Accès au diagnostic non autorisé"
+                })
+        else:
+            session_diagnostic_id = request.session.get(
+                "greencheck_diagnostic_id"
+            )
+
+            if session_diagnostic_id != diagnostic.id:
+                return request.make_json_response({
+                    "success": False,
+                    "message": "Accès au diagnostic non autorisé"
+                })
 
         # Validation des données du contexte
         max_context_length = 255
