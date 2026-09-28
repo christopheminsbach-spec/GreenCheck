@@ -114,6 +114,46 @@ class GreenCheckWebsite(http.Controller):
         )
 
     @http.route(
+        "/mon-espace/diagnostic/<int:diagnostic_id>/pdf",
+        type="http",
+        auth="user",
+        website=True
+    )
+    def mon_espace_diagnostic_pdf(self, diagnostic_id):
+
+        diagnostic = request.env["plant.diagnostic"].search(
+            [
+                ("id", "=", diagnostic_id),
+                ("user_id", "=", request.env.user.id)
+            ],
+            limit=1
+        )
+
+        if not diagnostic:
+            return request.not_found()
+
+        report = request.env.ref(
+            "greencheck_theme.action_report_diagnostic"
+        )
+
+        pdf_content, _ = report._render_qweb_pdf(
+            report,
+            res_ids=[diagnostic.id]
+        )
+
+        return request.make_response(
+            pdf_content,
+            headers=[
+                ("Content-Type", "application/pdf"),
+                (
+                    "Content-Disposition",
+                    'attachment; filename="diagnostic-greencheck-%s.pdf"'
+                    % diagnostic.id,
+                ),
+            ],
+        )
+
+    @http.route(
         "/diagnostic/upload",
         type="http",
         auth="public",
@@ -182,7 +222,6 @@ class GreenCheckWebsite(http.Controller):
         csrf=False
     )
     def diagnostic_start(self, **post):
-
 
         diagnostic_id = post.get("diagnostic_id")
 

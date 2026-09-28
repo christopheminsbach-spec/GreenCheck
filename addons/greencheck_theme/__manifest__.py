@@ -27,6 +27,7 @@
         "views/mon_espace.xml",
         "views/mon_espace_diagnostic.xml",
         "views/login.xml",
+        "reports/diagnostic_report.xml",
     ],
 
     "assets": {

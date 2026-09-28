@@ -171,6 +171,13 @@
                             </a>
 
                             <a
+                                t-att-href="'/mon-espace/diagnostic/%s/pdf' % diagnostic.id"
+                                class="greencheck-btn greencheck-btn-primary"
+                            >
+                                 Télécharger le PDF
+                            </a>
+
+                            <a
                                 href="/diagnostic-ia"
                                 class="greencheck-btn greencheck-btn-primary"
                             >

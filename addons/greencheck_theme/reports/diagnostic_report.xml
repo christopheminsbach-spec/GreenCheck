@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template
+        id="diagnostic_report"
+        name="GreenCheck - Fiche diagnostic"
+    >
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="diagnostic">
+
+                <div class="page">
+
+                    <h1>
+                        GreenCheck by AgroNovaTech
+                    </h1>
+
+                    <h2>
+                        Diagnostic intelligent de plantes
+                    </h2>
+
+                    <hr/>
+
+                    <h3>
+                        <t t-esc="diagnostic.name"/>
+                    </h3>
+
+                    <p>
+                        <strong>Date du diagnostic :</strong>
+                        <t t-esc="diagnostic.date_diagnostic"/>
+                    </p>
+
+                    <h3>
+                        Contexte de la plante
+                    </h3>
+
+                    <p t-if="diagnostic.plant_type">
+                        <strong>Type de plante :</strong>
+                        <t t-esc="diagnostic.plant_type"/>
+                    </p>
+
+                    <p t-if="diagnostic.location">
+                        <strong>Localisation :</strong>
+                        <t t-esc="diagnostic.location"/>
+                    </p>
+
+                    <p t-if="diagnostic.exposure">
+                        <strong>Exposition :</strong>
+                        <t t-esc="diagnostic.exposure"/>
+                    </p>
+
+                    <div t-if="diagnostic.image">
+
+                        <h3>
+                            Photo de la plante
+                        </h3>
+
+                        <img
+                            t-att-src="'data:image/*;base64,%s' % diagnostic.image.decode('utf-8')"
+                            style="max-width: 500px; max-height: 500px;"
+                            alt="Photo de la plante"
+                        />
+
+                    </div>
+
+                    <h3>
+                        Résultat de l'analyse
+                    </h3>
+
+                    <p t-if="diagnostic.ai_result">
+                        <strong>Résultat :</strong>
+                        <br/>
+                        <t t-esc="diagnostic.ai_result"/>
+                    </p>
+
+                    <p t-if="diagnostic.ai_confidence">
+                        <strong>Confiance :</strong>
+                        <t t-esc="diagnostic.ai_confidence * 100"/> %
+                    </p>
+
+                    <h3 t-if="diagnostic.recommendations">
+                        Recommandations
+                    </h3>
+
+                    <p t-if="diagnostic.recommendations">
+                        <t t-esc="diagnostic.recommendations"/>
+                    </p>
+
+                </div>
+
+            </t>
+
+        </t>
+
+    </template>
+
+    <record
+        id="action_report_diagnostic"
+        model="ir.actions.report"
+    >
+
+        <field name="name">
+            Fiche diagnostic
+        </field>
+
+        <field name="model">plant.diagnostic</field>
+
+        <field name="report_type">qweb-pdf</field>
+
+        <field name="report_name">greencheck_theme.diagnostic_report</field>
+
+        <field name="report_file">greencheck_theme.diagnostic_report</field>
+
+        <field
+            name="print_report_name"
+        >
+            'Diagnostic GreenCheck - %s' % (object.name)
+        </field>
+
+        <field
+            name="binding_model_id"
+            ref="greencheck_theme.model_plant_diagnostic"
+        />
+
+        <field name="binding_type">report</field>
+
+    </record>
+
+</odoo>
