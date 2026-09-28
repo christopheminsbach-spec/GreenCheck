@@ -214,9 +214,35 @@ class GreenCheckWebsite(http.Controller):
         # Validation des données du contexte
         max_context_length = 255
 
-        plant_type = post.get("plant_type", "").strip()
-        location = post.get("location", "").strip()
-        exposure = post.get("exposure", "").strip()
+        plant_type = post.get("plant_type", "")
+        location = post.get("location", "")
+        exposure = post.get("exposure", "")
+
+        context_values = {
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
+        }
+
+        context_labels = {
+            "plant_type": "Type de plante",
+            "location": "Localisation",
+            "exposure": "Exposition",
+        }
+
+        for field_name, field_value in context_values.items():
+            if not isinstance(field_value, str):
+                return request.make_json_response({
+                    "success": False,
+                    "message": (
+                        "%s doit être une valeur textuelle."
+                        % context_labels[field_name]
+                    )
+                })
+
+        plant_type = plant_type.strip()
+        location = location.strip()
+        exposure = exposure.strip()
 
         context_fields = {
             "plant_type": plant_type,
@@ -311,9 +337,35 @@ class GreenCheckWebsite(http.Controller):
         # Validation des données du contexte
         max_context_length = 255
 
-        plant_type = post.get("plant_type", "").strip()
-        location = post.get("location", "").strip()
-        exposure = post.get("exposure", "").strip()
+        plant_type = post.get("plant_type", "")
+        location = post.get("location", "")
+        exposure = post.get("exposure", "")
+
+        context_values = {
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
+        }
+
+        context_labels = {
+            "plant_type": "Type de plante",
+            "location": "Localisation",
+            "exposure": "Exposition",
+        }
+
+        for field_name, field_value in context_values.items():
+            if not isinstance(field_value, str):
+                return request.make_json_response({
+                    "success": False,
+                    "message": (
+                        "%s doit être une valeur textuelle."
+                        % context_labels[field_name]
+                    )
+                })
+
+        plant_type = plant_type.strip()
+        location = location.strip()
+        exposure = exposure.strip()
 
         context_fields = {
             "plant_type": plant_type,
