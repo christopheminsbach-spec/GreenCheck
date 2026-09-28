@@ -211,14 +211,43 @@ class GreenCheckWebsite(http.Controller):
         # Encodage de l'image
         image_base64 = base64.b64encode(image_data)
 
+        # Validation des données du contexte
+        max_context_length = 255
+
+        plant_type = post.get("plant_type", "").strip()
+        location = post.get("location", "").strip()
+        exposure = post.get("exposure", "").strip()
+
+        context_fields = {
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
+        }
+
+        context_labels = {
+            "plant_type": "Type de plante",
+            "location": "Localisation",
+            "exposure": "Exposition",
+        }
+
+        for field_name, field_value in context_fields.items():
+            if len(field_value) > max_context_length:
+                return request.make_json_response({
+                    "success": False,
+                    "message": (
+                        "%s ne peut pas dépasser 255 caractères."
+                        % context_labels[field_name]
+                    )
+                })
+
         # Préparation des données du diagnostic
         diagnostic_values = {
             "name": "Diagnostic plante",
             "state": "draft",
             "image": image_base64,
-            "plant_type": post.get("plant_type", "").strip(),
-            "location": post.get("location", "").strip(),
-            "exposure": post.get("exposure", "").strip(),
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
         }
 
         # Association au compte connecté
@@ -279,11 +308,40 @@ class GreenCheckWebsite(http.Controller):
                 "message": "Diagnostic introuvable"
             })
 
+        # Validation des données du contexte
+        max_context_length = 255
+
+        plant_type = post.get("plant_type", "").strip()
+        location = post.get("location", "").strip()
+        exposure = post.get("exposure", "").strip()
+
+        context_fields = {
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
+        }
+
+        context_labels = {
+            "plant_type": "Type de plante",
+            "location": "Localisation",
+            "exposure": "Exposition",
+        }
+
+        for field_name, field_value in context_fields.items():
+            if len(field_value) > max_context_length:
+                return request.make_json_response({
+                    "success": False,
+                    "message": (
+                        "%s ne peut pas dépasser 255 caractères."
+                        % context_labels[field_name]
+                    )
+                })
+
         # Mise à jour du contexte du diagnostic
         diagnostic.write({
-            "plant_type": post.get("plant_type", "").strip(),
-            "location": post.get("location", "").strip(),
-            "exposure": post.get("exposure", "").strip(),
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
         })
 
         # Passage du diagnostic à l'état "En analyse"
