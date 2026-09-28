@@ -170,8 +170,28 @@ class GreenCheckWebsite(http.Controller):
                 "message": "Aucune image reçue"
             })
 
-        # Lecture et encodage de l'image
-        image_data = image.read()
+        # Formats d'image autorisés
+        allowed_mimetypes = {
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+        }
+
+        if image.content_type not in allowed_mimetypes:
+            return request.make_json_response({
+                "success": False,
+                "message": (
+                    "Format d'image non autorisé. "
+                    "Utilisez JPG, PNG ou WEBP."
+                )
+            })
+
+        # Limitation de la taille à 5 Mo
+        max_image_size = 5 * 1024 * 1024
+
+        # Lecture limitée à 5 Mo + 1 octet afin de détecter
+        # immédiatement un fichier trop volumineux.
+        image_data = image.stream.read(max_image_size + 1)
 
         if not image_data:
             return request.make_json_response({
@@ -179,6 +199,16 @@ class GreenCheckWebsite(http.Controller):
                 "message": "L'image reçue est vide"
             })
 
+        if len(image_data) > max_image_size:
+            return request.make_json_response({
+                "success": False,
+                "message": (
+                    "L'image est trop volumineuse. "
+                    "La taille maximale est de 5 Mo."
+                )
+            })
+
+        # Encodage de l'image
         image_base64 = base64.b64encode(image_data)
 
         # Préparation des données du diagnostic
@@ -231,8 +261,16 @@ class GreenCheckWebsite(http.Controller):
                 "message": "Aucun diagnostic indiqué"
             })
 
+        try:
+            diagnostic_id = int(diagnostic_id)
+        except (TypeError, ValueError):
+            return request.make_json_response({
+                "success": False,
+                "message": "Identifiant de diagnostic invalide"
+            })
+
         diagnostic = request.env["plant.diagnostic"].sudo().browse(
-            int(diagnostic_id)
+            diagnostic_id
         )
 
         if not diagnostic.exists():
