@@ -6,10 +6,13 @@ services:
 
     container_name: greencheck-postgres
 
+    ports:
+      - "5433:5432"
+
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: odoo
-      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
     volumes:
       - greencheck-db-data:/var/lib/postgresql/data
@@ -26,6 +29,11 @@ services:
 
     ports:
       - "8070:8069"
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
     volumes:
 

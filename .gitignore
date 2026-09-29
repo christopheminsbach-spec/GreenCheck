@@ -13,6 +13,18 @@ filestore/
 # Docker
 *.pid
 
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Temporary / backup files
+*.save
+*.backup
+
+# Database dumps
+*.sql
+
 # IDE
 .vscode/
 .idea/
