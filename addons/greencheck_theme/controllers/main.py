@@ -1,6 +1,10 @@
 from odoo import http
 from odoo.http import request
 import base64
+import requests
+
+
+GREENCHECK_AI_URL = "http://host.docker.internal:8001/predict"
 
 
 class GreenCheckWebsite(http.Controller):
@@ -423,8 +427,72 @@ class GreenCheckWebsite(http.Controller):
         # Passage du diagnostic à l'état "En analyse"
         diagnostic.action_start_analysis()
 
-        # Simulation de l'analyse IA
-        diagnostic.action_simulate_analysis()
+        # Appel du service GreenCheck AI
+        try:
+            response = requests.post(
+                GREENCHECK_AI_URL,
+                files={
+                    "file": (
+                        "diagnostic.jpg",
+                        base64.b64decode(diagnostic.image),
+                        "image/jpeg",
+                    )
+                },
+                timeout=30,
+            )
+            response.raise_for_status()
+            ai_data = response.json()
+        except (requests.RequestException, ValueError):
+            return request.make_json_response({
+                "success": False,
+                "message": "Le service d'analyse IA est indisponible.",
+            })
+
+        if not ai_data.get("success"):
+            return request.make_json_response({
+                "success": False,
+                "message": "L'analyse IA a échoué.",
+            })
+
+        diagnosis_data = ai_data.get("diagnosis")
+
+        if not isinstance(diagnosis_data, dict):
+            return request.make_json_response({
+                "success": False,
+                "message": "Réponse invalide du service d'analyse IA.",
+            })
+
+        prediction = ai_data.get("prediction")
+        confidence = ai_data.get("confidence")
+        recommendations = diagnosis_data.get("recommendations")
+
+        if not isinstance(prediction, str):
+            return request.make_json_response({
+                "success": False,
+                "message": "Résultat IA invalide.",
+            })
+
+        if not isinstance(confidence, (int, float)):
+            return request.make_json_response({
+                "success": False,
+                "message": "Confiance IA invalide.",
+            })
+
+        if not isinstance(recommendations, list):
+            return request.make_json_response({
+                "success": False,
+                "message": "Recommandations IA invalides.",
+            })
+
+        diagnostic.write({
+            "ai_result": prediction,
+            "ai_confidence": confidence,
+            "recommendations": "\n".join(
+                str(recommendation)
+                for recommendation in recommendations
+            ),
+            "state": "done",
+        })
 
         state_label = dict(
             diagnostic._fields["state"].selection
