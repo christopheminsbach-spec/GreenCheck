@@ -125,6 +125,44 @@
     color: #2E7D32;
 }
 
+.greencheck-account-diagnostic-context {
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: #F7FAF7;
+    border: 1px solid #E2EAE3;
+    border-radius: 10px;
+    color: #26332A;
+    line-height: 1.6;
+}
+
+.greencheck-account-diagnostic-context > strong {
+    color: #2E7D32;
+}
+
+.greencheck-account-diagnostic-context ul {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.greencheck-account-diagnostic-context li + li {
+    margin-top: 6px;
+}
+
+.greencheck-account-diagnostic-context li strong {
+    color: #66736A;
+}
+
+.greencheck-account-diagnostic-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 24px;
+}
+
+.greencheck-account-diagnostic-actions .greencheck-btn {
+    display: inline-block;
+}
+
 .greencheck-account-diagnostic-result {
     margin-top: 20px;
     padding: 16px 18px;

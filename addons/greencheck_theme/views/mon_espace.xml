@@ -21,7 +21,7 @@
 
                             <h1>
                                 Bienvenue,
-                                  <t t-esc="request.env.user.name"/>
+                                <t t-esc="request.env.user.name"/>
                             </h1>
 
                             <p>
@@ -58,9 +58,9 @@
 
                                     <h3>
                                         <a
-                                           t-att-href="'/mon-espace/diagnostic/%s' % diagnostic.id"
+                                            t-att-href="'/mon-espace/diagnostic/%s' % diagnostic.id"
                                         >
-                                           <t t-esc="diagnostic.name"/>
+                                            <t t-esc="diagnostic.name"/>
                                         </a>
                                     </h3>
 
@@ -79,6 +79,36 @@
                                     <t t-esc="dict(
                                         diagnostic._fields['state'].selection
                                     ).get(diagnostic.state)"/>
+
+                                </div>
+
+                                <div
+                                    t-if="diagnostic.plant_type or diagnostic.location or diagnostic.exposure"
+                                    class="greencheck-account-diagnostic-context"
+                                >
+
+                                    <strong>
+                                        Contexte :
+                                    </strong>
+
+                                    <ul>
+
+                                        <li t-if="diagnostic.plant_type">
+                                            <strong>Type :</strong>
+                                            <t t-esc="diagnostic.plant_type"/>
+                                        </li>
+
+                                        <li t-if="diagnostic.location">
+                                            <strong>Localisation :</strong>
+                                            <t t-esc="diagnostic.location"/>
+                                        </li>
+
+                                        <li t-if="diagnostic.exposure">
+                                            <strong>Exposition :</strong>
+                                            <t t-esc="diagnostic.exposure"/>
+                                        </li>
+
+                                    </ul>
 
                                 </div>
 
@@ -106,6 +136,17 @@
 
                                     <t t-esc="diagnostic.ai_confidence * 100"/>
                                     %
+
+                                </div>
+
+                                <div class="greencheck-account-diagnostic-actions">
+
+                                    <a
+                                        t-att-href="'/mon-espace/diagnostic/%s' % diagnostic.id"
+                                        class="greencheck-btn greencheck-btn-secondary"
+                                    >
+                                        Voir le diagnostic
+                                    </a>
 
                                 </div>
 
