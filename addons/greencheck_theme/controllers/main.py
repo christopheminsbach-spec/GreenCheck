@@ -1,6 +1,7 @@
 from odoo import http
 from odoo.http import request
 import base64
+import math
 import requests
 
 
@@ -429,13 +430,30 @@ class GreenCheckWebsite(http.Controller):
 
         # Appel du service GreenCheck AI
         try:
+            image_bytes = base64.b64decode(diagnostic.image)
+
+            if image_bytes.startswith(b"\xff\xd8\xff"):
+                filename = "diagnostic.jpg"
+                content_type = "image/jpeg"
+            elif image_bytes.startswith(b"\x89PNG\r\n\x1a\n"):
+                filename = "diagnostic.png"
+                content_type = "image/png"
+            elif image_bytes.startswith(b"RIFF") and image_bytes[8:12] == b"WEBP":
+                filename = "diagnostic.webp"
+                content_type = "image/webp"
+            else:
+                return request.make_json_response({
+                    "success": False,
+                    "message": "Format d'image invalide.",
+                })
+
             response = requests.post(
                 GREENCHECK_AI_URL,
                 files={
                     "file": (
-                        "diagnostic.jpg",
-                        base64.b64decode(diagnostic.image),
-                        "image/jpeg",
+                        filename,
+                        image_bytes,
+                        content_type,
                     )
                 },
                 timeout=30,
@@ -472,13 +490,20 @@ class GreenCheckWebsite(http.Controller):
                 "message": "Résultat IA invalide.",
             })
 
-        if not isinstance(confidence, (int, float)):
+        if (
+            not isinstance(confidence, (int, float))
+            or not math.isfinite(confidence)
+            or not 0 <= confidence <= 1
+        ):
             return request.make_json_response({
                 "success": False,
                 "message": "Confiance IA invalide.",
             })
 
-        if not isinstance(recommendations, list):
+        if (
+            not isinstance(recommendations, list)
+            or not all(isinstance(item, str) for item in recommendations)
+        ):
             return request.make_json_response({
                 "success": False,
                 "message": "Recommandations IA invalides.",
