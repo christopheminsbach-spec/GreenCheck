@@ -5,7 +5,7 @@ import math
 import requests
 
 
-GREENCHECK_AI_URL = "http://host.docker.internal:8001/predict"
+GREENCHECK_AI_URL = "http://greencheck-ai:8001/predict"
 
 
 class GreenCheckWebsite(http.Controller):
