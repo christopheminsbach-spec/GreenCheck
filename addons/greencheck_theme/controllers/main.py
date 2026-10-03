@@ -309,6 +309,121 @@ class GreenCheckWebsite(http.Controller):
         })
 
     @http.route(
+        "/diagnostic/update-context",
+        type="http",
+        auth="public",
+        methods=["POST"],
+        csrf=False
+    )
+    def diagnostic_update_context(self, **post):
+
+        diagnostic_id = post.get("diagnostic_id")
+
+        if not diagnostic_id:
+            return request.make_json_response({
+                "success": False,
+                "message": "Aucun diagnostic indiqué"
+            })
+
+        try:
+            diagnostic_id = int(diagnostic_id)
+        except (TypeError, ValueError):
+            return request.make_json_response({
+                "success": False,
+                "message": "Identifiant de diagnostic invalide"
+            })
+
+        diagnostic = request.env["plant.diagnostic"].sudo().browse(
+            diagnostic_id
+        )
+
+        if not diagnostic.exists():
+            return request.make_json_response({
+                "success": False,
+                "message": "Diagnostic introuvable"
+            })
+
+        # Contrôle d'accès au diagnostic
+        public_user = request.env.ref("base.public_user")
+
+        if request.env.user.id != public_user.id:
+            if diagnostic.user_id.id != request.env.user.id:
+                return request.make_json_response({
+                    "success": False,
+                    "message": "Accès au diagnostic non autorisé"
+                })
+        else:
+            session_diagnostic_id = request.session.get(
+                "greencheck_diagnostic_id"
+            )
+
+            if session_diagnostic_id != diagnostic.id:
+                return request.make_json_response({
+                    "success": False,
+                    "message": "Accès au diagnostic non autorisé"
+                })
+
+        # Validation des données du contexte
+        max_context_length = 255
+
+        plant_type = post.get("plant_type", "")
+        location = post.get("location", "")
+        exposure = post.get("exposure", "")
+
+        context_values = {
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
+        }
+
+        context_labels = {
+            "plant_type": "Type de plante",
+            "location": "Localisation",
+            "exposure": "Exposition",
+        }
+
+        for field_name, field_value in context_values.items():
+            if not isinstance(field_value, str):
+                return request.make_json_response({
+                    "success": False,
+                    "message": (
+                        "%s doit être une valeur textuelle."
+                        % context_labels[field_name]
+                    )
+                })
+
+        plant_type = plant_type.strip()
+        location = location.strip()
+        exposure = exposure.strip()
+
+        context_fields = {
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
+        }
+
+        for field_name, field_value in context_fields.items():
+            if len(field_value) > max_context_length:
+                return request.make_json_response({
+                    "success": False,
+                    "message": (
+                        "%s ne peut pas dépasser 255 caractères."
+                        % context_labels[field_name]
+                    )
+                })
+
+        diagnostic.write({
+            "plant_type": plant_type,
+            "location": location,
+            "exposure": exposure,
+        })
+
+        return request.make_json_response({
+            "success": True,
+            "diagnostic_id": diagnostic.id,
+        })
+
+    @http.route(
         "/diagnostic/start",
         type="http",
         auth="public",

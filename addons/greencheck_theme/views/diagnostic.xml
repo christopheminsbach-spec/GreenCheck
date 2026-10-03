@@ -709,6 +709,101 @@
                             const plantExposure =
                                 document.getElementById("plant-exposure");
 
+
+                            // =================================================
+                            // PERSISTANCE DU CONTEXTE DU DIAGNOSTIC
+                            // =================================================
+
+                            async function saveDiagnosticContext() {
+
+                                if (!diagnosticId) {
+                                    return false;
+                                }
+
+                                const contextData =
+                                    new FormData();
+
+                                contextData.append(
+                                    "diagnostic_id",
+                                    diagnosticId
+                                );
+
+                                contextData.append(
+                                    "plant_type",
+                                    plantType
+                                        ? plantType.value.trim()
+                                        : ""
+                                );
+
+                                contextData.append(
+                                    "location",
+                                    plantLocation
+                                        ? plantLocation.value.trim()
+                                        : ""
+                                );
+
+                                contextData.append(
+                                    "exposure",
+                                    plantExposure
+                                        ? plantExposure.value.trim()
+                                        : ""
+                                );
+
+                                const contextResponse =
+                                    await fetch(
+                                        "/diagnostic/update-context",
+                                        {
+                                            method: "POST",
+                                            body: contextData
+                                        }
+                                    );
+
+                                const contextResult =
+                                    await contextResponse.json();
+
+                                if (!contextResult.success) {
+
+                                    console.error(
+                                        "Erreur lors de la sauvegarde du contexte :",
+                                        contextResult.message
+                                    );
+
+                                    return false;
+                                }
+
+                                console.log(
+                                    "Contexte du diagnostic sauvegardé"
+                                );
+
+                                return true;
+                            }
+
+
+                            if (plantType) {
+
+                                plantType.addEventListener(
+                                    "change",
+                                    async function () {
+
+                                        try {
+
+                                            await saveDiagnosticContext();
+
+                                        } catch (error) {
+
+                                            console.error(
+                                                "Erreur lors de la sauvegarde du contexte :",
+                                                error
+                                            );
+
+                                        }
+
+                                    }
+                                );
+
+                            }
+
+
                             formData.append(
                                 "plant_type",
                                 plantType
@@ -796,6 +891,19 @@
 
                                         plantType.value =
                                             result.ai_result;
+
+                                        try {
+
+                                            await saveDiagnosticContext();
+
+                                        } catch (error) {
+
+                                            console.error(
+                                                "Erreur lors de la sauvegarde de la proposition IA :",
+                                                error
+                                            );
+
+                                        }
 
                                     }
 
