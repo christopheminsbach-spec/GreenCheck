@@ -557,6 +557,7 @@ class GreenCheckWebsite(http.Controller):
                 filename = "diagnostic.webp"
                 content_type = "image/webp"
             else:
+                diagnostic.write({"state": "draft"})
                 return request.make_json_response({
                     "success": False,
                     "message": "Format d'image invalide.",
@@ -576,12 +577,14 @@ class GreenCheckWebsite(http.Controller):
             response.raise_for_status()
             ai_data = response.json()
         except (requests.RequestException, ValueError):
+            diagnostic.write({"state": "draft"})
             return request.make_json_response({
                 "success": False,
                 "message": "Le service d'analyse IA est indisponible.",
             })
 
         if not ai_data.get("success"):
+            diagnostic.write({"state": "draft"})
             return request.make_json_response({
                 "success": False,
                 "message": "L'analyse IA a échoué.",
@@ -590,6 +593,7 @@ class GreenCheckWebsite(http.Controller):
         diagnosis_data = ai_data.get("diagnosis")
 
         if not isinstance(diagnosis_data, dict):
+            diagnostic.write({"state": "draft"})
             return request.make_json_response({
                 "success": False,
                 "message": "Réponse invalide du service d'analyse IA.",
@@ -600,6 +604,7 @@ class GreenCheckWebsite(http.Controller):
         recommendations = diagnosis_data.get("recommendations")
 
         if not isinstance(prediction, str):
+            diagnostic.write({"state": "draft"})
             return request.make_json_response({
                 "success": False,
                 "message": "Résultat IA invalide.",
@@ -610,6 +615,7 @@ class GreenCheckWebsite(http.Controller):
             or not math.isfinite(confidence)
             or not 0 <= confidence <= 1
         ):
+            diagnostic.write({"state": "draft"})
             return request.make_json_response({
                 "success": False,
                 "message": "Confiance IA invalide.",
@@ -619,6 +625,7 @@ class GreenCheckWebsite(http.Controller):
             not isinstance(recommendations, list)
             or not all(isinstance(item, str) for item in recommendations)
         ):
+            diagnostic.write({"state": "draft"})
             return request.make_json_response({
                 "success": False,
                 "message": "Recommandations IA invalides.",
