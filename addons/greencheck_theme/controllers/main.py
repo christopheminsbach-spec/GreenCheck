@@ -478,6 +478,14 @@ class GreenCheckWebsite(http.Controller):
                     "message": "Accès au diagnostic non autorisé"
                 })
 
+        # Protection du cycle de vie du diagnostic
+        if diagnostic.state != "draft":
+            return request.make_json_response({
+                "success": False,
+                "message": "Ce diagnostic ne peut plus être analysé.",
+                "state": diagnostic.state,
+            })
+
         # Validation des données du contexte
         max_context_length = 255
 
