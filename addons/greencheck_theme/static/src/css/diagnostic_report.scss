@@ -1,0 +1,104 @@
+.greencheck-report {
+    color: #26332A;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.greencheck-report-header {
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.greencheck-report-brand {
+    margin: 0;
+    color: #2E7D32;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.greencheck-report-title {
+    margin: 4px 0 14px;
+    color: #26332A;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.greencheck-report-meta {
+    margin: 0;
+    color: #66736A;
+    font-size: 12px;
+}
+
+.greencheck-report-section {
+    margin-top: 20px;
+}
+
+.greencheck-report-section-title {
+    margin: 0 0 10px;
+    color: #2E7D32;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.greencheck-report-context {
+    width: 100%;
+    margin-bottom: 18px;
+    border: 1px solid #E2EAE3;
+    border-collapse: collapse;
+    background: #F7FAF7;
+}
+
+.greencheck-report-context td {
+    padding: 8px 10px;
+    border: 1px solid #E2EAE3;
+    vertical-align: top;
+}
+
+.greencheck-report-context-label {
+    width: 32%;
+    color: #2E7D32;
+    font-weight: 700;
+}
+
+.greencheck-report-photo {
+    margin: 12px 0 20px;
+    text-align: center;
+}
+
+.greencheck-report-photo img {
+    max-width: 440px;
+    max-height: 360px;
+}
+
+.greencheck-report-result {
+    margin: 0 0 12px;
+    padding: 14px 16px;
+    border-left: 4px solid #4CAF50;
+    background: #E8F5E9;
+}
+
+.greencheck-report-result-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2E7D32;
+    font-weight: 700;
+}
+
+.greencheck-report-confidence {
+    margin: 0 0 18px;
+    color: #26332A;
+}
+
+.greencheck-report-confidence-label {
+    color: #2E7D32;
+    font-weight: 700;
+}
+
+.greencheck-report-recommendations {
+    margin: 0;
+    padding: 12px 15px;
+    border: 1px solid #E2EAE3;
+    background: #F7FAF7;
+}

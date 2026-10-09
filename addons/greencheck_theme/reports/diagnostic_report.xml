@@ -10,82 +10,138 @@
 
             <t t-foreach="docs" t-as="diagnostic">
 
-                <div class="page">
+                <div class="page greencheck-report">
 
-                    <h1>
-                        GreenCheck by AgroNovaTech
-                    </h1>
+                    <div class="greencheck-report-header">
 
-                    <h2>
-                        Diagnostic intelligent de plantes
-                    </h2>
+                        <h1 class="greencheck-report-brand">
+                            GreenCheck by AgroNovaTech
+                        </h1>
 
-                    <hr/>
-
-                    <h3>
-                        <t t-esc="diagnostic.name"/>
-                    </h3>
-
-                    <p>
-                        <strong>Date du diagnostic :</strong>
-                        <t t-esc="diagnostic.date_diagnostic"/>
-                    </p>
-
-                    <h3>
-                        Contexte de la plante
-                    </h3>
-
-                    <p t-if="diagnostic.plant_type">
-                        <strong>Type de plante :</strong>
-                        <t t-esc="diagnostic.plant_type"/>
-                    </p>
-
-                    <p t-if="diagnostic.location">
-                        <strong>Localisation :</strong>
-                        <t t-esc="diagnostic.location"/>
-                    </p>
-
-                    <p t-if="diagnostic.exposure">
-                        <strong>Exposition :</strong>
-                        <t t-esc="diagnostic.exposure"/>
-                    </p>
-
-                    <div t-if="diagnostic.image">
+                        <h2 class="greencheck-report-title">
+                            Diagnostic intelligent de plantes
+                        </h2>
 
                         <h3>
-                            Photo de la plante
+                            <t t-esc="diagnostic.name"/>
                         </h3>
 
-                        <img
-                            t-att-src="'data:image/*;base64,%s' % diagnostic.image.decode('utf-8')"
-                            style="max-width: 500px; max-height: 500px;"
-                            alt="Photo de la plante"
-                        />
+                        <p class="greencheck-report-meta">
+                            <strong>Date du diagnostic :</strong>
+                            <t t-esc="diagnostic.date_diagnostic"/>
+                        </p>
 
                     </div>
 
-                    <h3>
-                        Résultat de l'analyse
-                    </h3>
+                    <div class="greencheck-report-section">
 
-                    <p t-if="diagnostic.ai_result">
-                        <strong>Résultat :</strong>
-                        <br/>
-                        <t t-esc="diagnostic.ai_result"/>
-                    </p>
+                        <h3 class="greencheck-report-section-title">
+                            Contexte de la plante
+                        </h3>
 
-                    <p t-if="diagnostic.ai_confidence">
-                        <strong>Confiance :</strong>
-                        <t t-esc="diagnostic.ai_confidence * 100"/> %
-                    </p>
+                        <table class="greencheck-report-context">
+                            <tbody>
 
-                    <h3 t-if="diagnostic.recommendations">
-                        Recommandations
-                    </h3>
+                                <tr t-if="diagnostic.plant_type">
+                                    <td class="greencheck-report-context-label">
+                                        Type de plante
+                                    </td>
+                                    <td>
+                                        <t t-esc="diagnostic.plant_type"/>
+                                    </td>
+                                </tr>
 
-                    <p t-if="diagnostic.recommendations">
-                        <t t-esc="diagnostic.recommendations"/>
-                    </p>
+                                <tr t-if="diagnostic.location">
+                                    <td class="greencheck-report-context-label">
+                                        Localisation
+                                    </td>
+                                    <td>
+                                        <t t-esc="diagnostic.location"/>
+                                    </td>
+                                </tr>
+
+                                <tr t-if="diagnostic.exposure">
+                                    <td class="greencheck-report-context-label">
+                                        Exposition
+                                    </td>
+                                    <td>
+                                        <t t-esc="diagnostic.exposure"/>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div
+                        t-if="diagnostic.image"
+                        class="greencheck-report-section"
+                    >
+
+                        <h3 class="greencheck-report-section-title">
+                            Photo de la plante
+                        </h3>
+
+                        <div class="greencheck-report-photo">
+
+                            <img
+                                t-att-src="'data:image/*;base64,%s' % diagnostic.image.decode('utf-8')"
+                                alt="Photo de la plante"
+                            />
+
+                        </div>
+
+                    </div>
+
+                    <div class="greencheck-report-section">
+
+                        <h3 class="greencheck-report-section-title">
+                            Résultat de l'analyse
+                        </h3>
+
+                        <div
+                            t-if="diagnostic.ai_result"
+                            class="greencheck-report-result"
+                        >
+
+                            <span class="greencheck-report-result-label">
+                                Résultat
+                            </span>
+
+                            <t t-esc="diagnostic.ai_result"/>
+
+                        </div>
+
+                        <p
+                            t-if="diagnostic.ai_confidence"
+                            class="greencheck-report-confidence"
+                        >
+
+                            <span class="greencheck-report-confidence-label">
+                                Confiance :
+                            </span>
+
+                            <t t-esc="diagnostic.ai_confidence * 100"/> %
+
+                        </p>
+
+                    </div>
+
+                    <div
+                        t-if="diagnostic.recommendations"
+                        class="greencheck-report-section"
+                    >
+
+                        <h3 class="greencheck-report-section-title">
+                            Recommandations
+                        </h3>
+
+                        <div class="greencheck-report-recommendations">
+                            <t t-esc="diagnostic.recommendations"/>
+                        </div>
+
+                    </div>
 
                 </div>
 
